@@ -1,0 +1,88 @@
+\documentclass{polytextumpres}
+
+%%
+%% Metadata
+%%
+
+% Set title. No check has been added because title is the bare minimum of
+% information that can be specified
+\title{$title$}
+
+% Set the subtitle if it exists
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+
+% Set the autor if it is specified. If it is not specified, then set it to my
+% name
+$if(author)$
+\author{$author$}
+$else$
+\author{Aramis Razzaghipour}
+$endif$
+
+% Set the date if it has been set. If it has not been set, then set it to be
+% today's date
+$if(date)$
+\date{$date$}
+$else$
+\date{\today}
+$endif$
+
+% Set the institute if it has been set. If it has not, then use the name of
+% where I will be giving a presentation
+$if(institute)$
+\institute{$institute$}
+$else$
+\institute{\lowercaps{MSC}}
+$endif$
+
+% Sets a bunch of PDF metadata intelligently depending on if it has been set
+\hypersetup{
+  $if(author)$
+    pdfauthor={$author$},
+  $else$
+    pdfauthor={Aramis Razzaghipour},
+  $endif$
+  pdftitle={$title$},
+  $if(subtitle)$
+    pdfsubject={$subtitle$},
+  $else$
+    pdfsubject={$title$},
+  $endif$
+  $if(author)$
+    $if(subtitle)$
+      pdfkeywords={$author$, $title$, $subtitle$},
+    $else$
+      pdfkeywords={$author$, $title$},
+    $endif$
+  $else$
+    $if(subtitle)$
+      pdfkeywords={Aramis Razzaghipour, $title$, $subtitle$},
+    $else$
+      pdfkeywords={Aramis Razzaghipour, $title$},
+    $endif$
+  $endif$
+}
+
+
+%%
+%% Document
+%%
+
+\begin{document}
+
+\maketitle
+
+$body$
+
+% If we're using a bibliography, then add a frame that can break across
+% multiple slides
+$if(bib)$
+\begin{frame}[allowframebreaks]{Bibliography}
+  \printbibliography[heading=none]
+\end{frame}
+$endif$
+
+\end{document}
+

@@ -1,0 +1,80 @@
+\documentclass[$if(sidenotes)$sidenotes,$endif$$if(twoside)$twoside,$endif$]{polytextumprose}
+
+% Titlepage
+\renewcommand{\maketitle}{%
+  \begin{titlingpage}
+    \null\vspace{8pc}
+
+    {\large\theauthor\par}%
+    \vspace{3pc}
+
+    $if(title1)$
+    {\Large\color{red}\uppercaps{$title1$}\par}%
+    \vspace{0.5em}
+    {\Large\color{red}\uppercaps{$title2$}\par}%
+    $else$
+    {\Large\color{red}\uppercaps{$title$}\par}%
+    $endif$
+    \vspace{3pc}
+
+    \vfill
+    {\large \thedate\par}%
+  \end{titlingpage}
+}
+
+% Metadata
+\title{$title$}
+
+$if(author)$
+\author{$author$}
+$else$
+\author{Aramis Razzaghipour}
+$endif$
+
+$if(date)$
+\date{$date$}
+$else$
+\date{\today}
+$endif$
+
+\hypersetup{
+  $if(author)$
+  pdfauthor={$author$},
+  $else$
+  pdfauthor={Aramis Razzaghipour},
+  $endif$
+  pdftitle={$title$},
+  pdfsubject={$title$},
+  $if(author)$
+  pdfkeywords={$author$, $title$},
+  $else$
+  pdfkeywords={Aramis Razzaghipour, $title$},
+  $endif$
+}
+
+\begin{document}
+
+\chapterstyle{mychapter}
+\pagestyle{myps}
+
+\pagenumbering{roman}
+\maketitle
+\tableofcontents*
+\cleardoublepage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+$body$
+
+% Print bibliography
+\cleardoublepage
+\printbibliography[heading=bibintoc]
+
+% Leave one or two pages blank
+\cleardoublepage
+\pagestyle{empty}
+\null
+
+\end{document}
+
