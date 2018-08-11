@@ -1,0 +1,50 @@
+%%%
+%%% moremargins.sty -- Margin-related settings
+%%%
+
+% Set width of typeblock in accordance with copyfitting table from The Elements
+% of Typographic Style; the lowercase Minion Pro alphabet at 12pt is 143.99 pt
+% long.
+\settypeblocksize{*}{27pc}{2}
+
+% Traditional vertical margin ratio
+\setulmargins{*}{*}{2}
+
+% If sidenotes are enabled ...
+\ifthenelse{\boolean{@argon@sidenotes}}{%
+  % Use a more extreme horizontal margin ratio ...
+  \setlrmargins{*}{*}{5}
+
+  % Set up the space the sidenotes will occupy ...
+  \setmarginnotes{2pc}{12pc}{\baselineskip}
+
+  % And set all the sidenotes settings
+  \input{sidenotes}
+
+  % If not using sidenotes ...
+}{
+
+  % If using a twoside layout ...
+  \ifthenelse{\boolean{@argon@twoside}}{%
+    % Use asymmetrical margins
+    \setlrmargins{*}{*}{2}
+
+    % If not using twoside layout ...
+  }{
+    % Use symmetrical margins
+    \setlrmargins{*}{*}{1}
+  }
+
+  % Place all figures inline with the text
+  \newcommand{\myfig}[2]{
+    \begin{figure}[ht]
+      \centering
+      \includegraphics[width=\linewidth]{#1}
+      \caption*{#2}
+    \end{figure}
+  }
+}
+
+% Set margins
+\checkandfixthelayout
+

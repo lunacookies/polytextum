@@ -1,0 +1,23 @@
+%%%
+%%% morebib.sty -- Bibliography setup
+%%%
+
+% Required by biblatex
+\RequirePackage{csquotes}
+
+% Bibliography management
+\RequirePackage[
+  backend=biber,        % Use biber as backend
+  style=numeric-comp,   % Sort inline citations
+  autocite=superscript, % Show citation number as a superscript
+  backref=true          % Show where something was cited
+]{biblatex}
+
+
+% Set bibliography source file
+\addbibresource{refs.bib}
+
+% Automatically use specified citation type
+\newcommand\mycite{\unskip~\autocite}
+\let\cite\mycite
+

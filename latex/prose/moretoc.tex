@@ -1,0 +1,28 @@
+%%%
+%%% moretoc.sty -- Table of Contents and List of Figures/Tables
+%%%
+
+% Table of Contents
+
+% Don't show subsections and deeper
+\maxtocdepth{section}
+
+\renewcommand{\cftchapterfont}{\normalfont\LARGE}
+\renewcommand{\cftchapterpagefont}{\normalfont\LARGE\color{brown}}
+\cftsetindents{chapter}{0em}{0em}
+\renewcommand{\cftchapterleader}{\hspace{-0.25em}}
+\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+
+\renewcommand{\cftsectionfont}{\normalfont\itshape}
+\renewcommand{\cftsectionpagefont}{\normalfont}
+\cftsetindents{section}{0.5em}{0em}
+\renewcommand{\cftsectionleader}{\hspace{-0.4em}}
+\renewcommand{\cftsectionafterpnum}{\cftparfillskip}
+
+% List of Figures/Tables
+
+\renewcommand{\cftfigureleader}{ }
+\renewcommand{\cftfigureafterpnum}{\cftparfillskip}
+\renewcommand{\cfttableleader}{ }
+\renewcommand{\cfttableafterpnum}{\cftparfillskip}
+

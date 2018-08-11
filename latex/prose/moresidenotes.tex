@@ -1,0 +1,80 @@
+%%%
+%%% moresidenotes.sty -- Side notes
+%%%
+
+% Backend for margin notes
+\RequirePackage{marginnote}
+
+% Fix overlapping margin notes which are in close proximity
+\RequirePackage{marginfix}
+
+% Command for deciding justification for content in the margin
+\newcommand{\argonflush}{
+  \ifthenelse{\boolean{@argon@twoside}}{%
+    \checkoddpage
+    \ifoddpage%
+      \RaggedRight
+    \else
+      \RaggedLeft
+    \fi
+  }{
+    \RaggedRight
+  }
+}
+
+% Floating margin notes (for automatic alignment)
+\newcommand{\myside}[1]{%
+  % Insert the superscript marker so the reader can eaily refer to a given
+  % sidenote
+  \footnotemark%
+  \ignorespaces%
+  \marginpar{%
+    % We use enumerate with the nosep option to easily hang the number in the
+    % margin, while not breaking vertical spacing in the column of sidenotes
+    \begin{enumerate}[nosep]
+      % Use a custom list item label to insert the sidenote number
+      \item[\thefootnote]
+      \argonflush
+      \small #1
+    \end{enumerate}
+  }
+  \unskip%
+}
+
+% Margin figure caption settings
+\captionsetup[marginfigure]{
+  font={small}
+}
+
+% Custom margin figure
+\newcommand{\myfig}[2]{
+  \begin{marginfigure}
+    \ifthenelse{\boolean{@argon@twoside}}{%
+      \checkoddpage
+      \ifoddpage%
+      \captionsetup{type=figure,%
+        options=marginfigure,%
+        justification=RaggedRight,%
+        singlelinecheck=false}
+      \RaggedRight
+      \else
+      \captionsetup{type=figure,%
+        options=marginfigure,%
+        justification=raggedleft,%
+        singlelinecheck=false}
+      \RaggedLeft
+      \fi
+    }{
+      \captionsetup{type=figure,%
+        options=marginfigure,%
+        justification=RaggedRight,%
+        singlelinecheck=false}
+      \RaggedRight
+    }
+    \includegraphics[width=\linewidth]{#1}
+    \vspace{-15pt plus 5pt minus 5pt}
+    \label{#1}
+    \caption*{#2}
+  \end{marginfigure}
+}
+

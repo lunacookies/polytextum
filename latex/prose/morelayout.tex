@@ -1,0 +1,72 @@
+%%%
+%%% morelayout.sty -- Layout
+%%%
+
+% Indent one lead; not one em
+\setlength{\parindent}{15pt}
+
+% Remove space between paragraphs
+\abnormalparskip{0em}
+
+% Plain headers and footers
+\makepagestyle{myps}
+\makeevenfoot{myps}{\normalfont\thepage}{}{}
+\makeoddfoot{myps}{}{}{\normalfont\thepage}
+
+% Set header and footer heights
+\setlength{\headheight}{15pt}
+\setlength{\footskip}{40pt}
+
+% Empty part page style
+\aliaspagestyle{part}{empty}
+\aliaspagestyle{chapter}{myps}
+
+% Do not number anything
+\setsecnumdepth{none}
+
+% Chapter style
+\makechapterstyle{mychapter}{%
+  \renewcommand{\chapterheadstart}{}
+  \renewcommand{\printchaptername}{}
+  \renewcommand{\chapternamenum}{}
+  \renewcommand{\printchapternum}{}
+  \renewcommand{\afterchapternum}{}
+  \renewcommand{\printchaptertitle}[1]{%
+    \raggedright\uppercaps{##1}}
+  \renewcommand{\afterchaptertitle}{%
+    \vspace{14.8pt} \hrule\vspace{15pt plus 5pt}}
+}
+
+% (Sub)section styles
+\setsecheadstyle{\raggedright\LARGE\scshape\needspace{1em}\lowercase}
+\setbeforesecskip{-15pt plus 5pt}
+\setaftersecskip{15pt minus 5pt}
+
+\setsubsecheadstyle{\raggedright\normalfont\itshape\needspace{1em}}
+\setbeforesubsecskip{-15pt minus 5pt}
+\setaftersubsecskip{15pt minus 5pt}
+
+% Allows customisation of lists
+\RequirePackage{enumitem}
+
+% Use smaller bullet for itemize regardless of indentation
+\setlist[itemize]{label=\textbullet}
+
+% Remove dot from enumerate lists
+\setlist[enumerate]{label=\arabic*}
+
+% Remove all vertical spacing in all lists
+\setlist{nosep}
+
+% Place list labels in margin and leave a (flexible) empty line above and below
+% lists
+\setlist[1]{leftmargin=0em,topsep=15pt plus 5pt minus 5pt}
+\setlist[2]{leftmargin=1em}
+\setlist[3]{leftmargin=2em}
+\setlist[4]{leftmargin=3em}
+\setlist[5]{leftmargin=4em}
+
+% Use italic labels in description lists while leaving a flexible line above and
+% below the list
+\setlist[description]{font=\normalfont\itshape,leftmargin=21pt}
+

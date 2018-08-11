@@ -1,0 +1,20 @@
+%%%
+%%% moreoptions.sty -- Class options
+%%%
+
+\RequirePackage{xkeyval}
+\RequirePackage{xifthen}
+
+% Sidenotes option (sets boolean to be used later)
+\newboolean{@argon@sidenotes}\setboolean{@argon@sidenotes}{false}
+\DeclareOptionX[argon]<common>{sidenotes}{\setboolean{@argon@sidenotes}{true}}
+\DeclareOptionX[argon]<common>{nosidenotes}{\setboolean{@argon@sidenotes}{false}}
+
+% Twoside option (sets boolean and passes option to class)
+\newboolean{@argon@twoside}\setboolean{@argon@twoside}{false}
+\DeclareOptionX[argon]<common>{twoside}{\setboolean{@argon@twoside}{true}}
+\DeclareOptionX[argon]<common>{oneside}{\setboolean{@argon@twoside}{false}}
+
+% Process all the options
+\ProcessOptionsX*[argon]<common>\relax
+

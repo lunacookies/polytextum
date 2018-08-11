@@ -1,0 +1,105 @@
+%%%
+%%% moretype.sty -- Typography
+%%%
+
+% Avoid widows, orphans, and lines sticking into the margin
+\clubpenalty=500
+\widowpenalty=1000
+\tolerance=300
+
+% Set a point size of 11 and leading of 15pt for the body text
+\renewcommand\LARGE{\@setfontsize\LARGE{13pt}{15pt}}
+\renewcommand\Large{\@setfontsize\Large{16pt}{22pt}}
+\renewcommand\large{\@setfontsize\large{15pt}{18pt}}
+\renewcommand\normalsize{\@setfontsize\normalsize{12pt}{15pt}}
+\renewcommand\small{\@setfontsize\small{10pt}{13pt}}
+
+% Create \newthought and \longnewthought commands for starting a new section
+% without a section heading. It adds a little vertical space and sets three or
+% four words in all small caps.
+\def\newthought #1 #2 #3 {\vspace{15pt plus 5pt minus 2pt}\noindent {\lowercaps{#1}} {\lowercaps{#2}} {\lowercaps{#3}} }
+\def\longnewthought #1 #2 #3 #4 {\vspace{15pt plus 5pt minus 2pt}\noindent {\lowercaps{#1}} {\lowercaps{#2}} {\lowercaps{#3}} {\lowercaps{#4}} }
+
+% Allow utf8 input
+\RequirePackage[utf8]{inputenc}
+
+% Microtypographic awesomeness!
+\RequirePackage[
+  final,        % Always use microtype; even when the draft option is used
+  kerning=true, % Allow the custom kerning used below
+  spacing=true, % Adjust space between words microtypographically
+]{microtype}
+
+% Disable purely ornamental Th ligature
+\DisableLigatures[T]{encoding={*}}
+
+% Track small caps by 80 units; 8 percent; 0.08 em
+\SetTracking{encoding={*}, shape=sc}{80}
+
+% Add extra space around some analphabetics as a hybrid between English and
+% French spacing
+\SetExtraKerning[unit=space]
+  {
+    encoding={*},
+    size={footnotesize,small,normalsize}
+  }{
+  \textendash={200,200},      % en-dash
+   "28={ ,250},               % left parenthesis
+   "29={250, },               % right parenthesis
+   ?={150, },                 % question mark
+   !={150, },                 % exclamation mark
+   :={150, },                 % colon
+   ;={150, },                 % semicolon
+   \textquotedblleft={ ,150}, % left quotation mark
+   \textquotedblright={150, } % right quotation mark
+ }
+
+% Custom letterspacing values
+\RequirePackage{letterspace}
+
+% Commands for letterspaced capitals
+\newcommand{\lowercaps}[1]{\textsc{\MakeLowercase{#1}}}
+\newcommand{\uppercaps}[1]{\textls[140]{{\MakeTextUppercase{#1}}}}
+
+% Command for abbreviations and acronyms
+\newcommand{\abbr}[1]{\lowercaps{#1}}
+
+% Command for fancier ampersand
+\newcommand{\oldand}{\textsw{\&}}
+
+% Use the Minion Pro font
+\RequirePackage[
+  fullfamily,     % Use all available weights
+  minionint,      % Use the integral symbols from MinionPro instead of MnSymbol
+  footnotefigures % Use native footnote figures
+]{MinionPro}
+
+% Make ligatures searchable
+\input glyphtounicode
+\pdfgentounicode=1
+
+% Use built-in letterspaced small caps
+\renewcommand{\scdefault}{ssc}
+
+% Use proportional text figures
+\figureversion{
+  text,        % Text figures
+  proportional % Proportional figures
+}
+
+% Use tabular figures in some places
+
+\RequirePackage[ % Use them for ...
+  toc,           % toc item labels
+  eqno,          % equation numbers
+  enum,          % enumerate item labels
+  bib,           % bibliography item labels
+  lineno         % line numbers
+]{tabfigures}
+
+% Ornaments
+\RequirePackage{fourier-orns}
+
+% Same amount of space between sentences as between words
+\frenchspacing
+
