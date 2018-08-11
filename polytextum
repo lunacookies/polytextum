@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+##
+## Modify before convert
+##
+
+# Abbreviations
+
+# Run some regexes to convert abbreviations and acronyms into small caps. If
+# a different kind of formatting for abbreviations/acronyms is desired, the
+# \abbr command can be redefined.
+
+# Matches any acceptable character (i.e. any character that will not be found in
+# code that has to be capitalised (e.g. chemical equations)) with a space after,
+# plus the abbreviation
+sed -E 's/([A-Za-z0-9.,:?;\)\"\x27}|#-] )([A-Z][A-Z]+)/\1\\abbr{\2}/g' $2 > $2.mod1
+
+# Matches abbreviation at the start of a line
+sed -E 's/^([A-Z][A-Z]+)/\\abbr{\1}/g' $2.mod1 > $2.mod2
+
+# Matches abbreviation after parentheses
+sed -E 's/\(([A-Z][A-Z]+)/\(\\abbr{\1}/g' $2.mod2 > $2.mod3
+
+# Misc
+
+# Use the best ampersand for titling (in this context, headings)
+sed -E 's/^(#+)(.*)&(.*)/\1\2\\oldand{}\3/g' $2.mod3 > $2.finalmod
+
+
+##
+## Convert
+##
+
+pandoc=pandoc -f markdown
+template=$HOME/.polytextum/templates
+
+# Convert the various document types into temporary tex files
+if [ $1 = "report" ]; then
+  $pandoc -t latex $2.finalmod -o $2.mod1.tex --template=$template/report.tex --top-level-division=chapter --biblatex
+elif [ $1 = "article" ]; then
+  $pandoc -t latex $2.finalmod -o $2.mod1.tex --template=$template/article.tex  --top-level-division=section --biblatex
+elif [ $1 = "pres" ]; then
+  $pandoc -t beamer $2.finalmod -o $2.mod1.tex --template=$template/pres.tex --slide-level=2 --biblatex
+else
+  echo "Specified document type not valid. Try using report, article, or pres."
+fi
+
+
+##
+## Modify after convert
+##
+
+# Delete pandoc's code that prohibits custom labels on ordered lists. You can
+# comment this part out if you use the many different kinds of list in pandoc's
+# markdown; such as i. ii. iii. and a. b. c
+sed '/\\def\\labelenumi/d' $2.mod1.tex > $2.mod2.tex
+sed '/\\tightlist/d' $2.mod2.tex > $2.tex
+
+
+##
+## Clean up
+##
+
+# Remove all the temporary files that this script creates
+rm $2.mod*
+rm $2.finalmod*
+
+
+##
+## Compile
+##
+
+# First, we rename the generated latex file to output.tex to ensure the generated
+# PDF is called output.pdf. Then we compile using latexmk, leaving no temporary
+# files. Finally, the generated latex file is removed.
+mv $1.tex $PWD/$(dirname $1)/output.tex
+latexmk -pdflua -c $PWD/$(dirname $1)/output.tex
+rm $PWD/$(dirname $1)/output.tex
+
