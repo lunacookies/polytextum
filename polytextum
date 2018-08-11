@@ -31,16 +31,15 @@ sed -E 's/^(#+)(.*)&(.*)/\1\2\\oldand{}\3/g' $2.mod3 > $2.finalmod
 ## Convert
 ##
 
-pandoc=pandoc -f markdown
 template=$HOME/.polytextum/templates
 
 # Convert the various document types into temporary tex files
 if [ $1 = "report" ]; then
-  $pandoc -t latex $2.finalmod -o $2.mod1.tex --template=$template/report.tex --top-level-division=chapter --biblatex
+  pandoc -f markdown -t latex $2.finalmod -o $2.mod1.tex --template=$template/report.tex --top-level-division=chapter --biblatex
 elif [ $1 = "article" ]; then
-  $pandoc -t latex $2.finalmod -o $2.mod1.tex --template=$template/article.tex  --top-level-division=section --biblatex
+  pandoc -f markdown -t latex $2.finalmod -o $2.mod1.tex --template=$template/article.tex  --top-level-division=section --biblatex
 elif [ $1 = "pres" ]; then
-  $pandoc -t beamer $2.finalmod -o $2.mod1.tex --template=$template/pres.tex --slide-level=2 --biblatex
+  pandoc -f markdown -t beamer $2.finalmod -o $2.mod1.tex --template=$template/pres.tex --slide-level=2 --biblatex
 else
   echo "Specified document type not valid. Try using report, article, or pres."
 fi
@@ -70,10 +69,21 @@ rm $2.finalmod*
 ## Compile
 ##
 
+absolute_filename() {
+  echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
+}
+output=$(dirname $(absolute_filename "$2"))
+
 # First, we rename the generated latex file to output.tex to ensure the generated
-# PDF is called output.pdf. Then we compile using latexmk, leaving no temporary
-# files. Finally, the generated latex file is removed.
-mv $1.tex $PWD/$(dirname $1)/output.tex
-latexmk -pdflua -c $PWD/$(dirname $1)/output.tex
-rm $PWD/$(dirname $1)/output.tex
+# PDF is called output.pdf. Then we compile using latexmk. Finally, the
+# generated latex files are removed.
+
+mv $2.tex $output/output.tex
+
+latexmk -pdf -quiet $output/output.tex
+
+mv $output/output.pdf $output/tmp
+rm $output/output*
+rm $output/*log
+mv $output/tmp $output/output.pdf
 
