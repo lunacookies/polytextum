@@ -33,7 +33,7 @@
 \newcommand{\oldand}{\textsw{\&}}
 
 % Allow loading system fonts
-\RequirePackage{fontspec}
+\RequirePackage[no-math]{fontspec}
 
 % Settings that apply to all fonts
 \defaultfontfeatures{
@@ -54,6 +54,9 @@
     Numbers={Monospaced}, % Use monospaced numbers
     Scale=MatchLowercase
 ]{Fira Mono OT}
+
+% Generate math fonts from system fonts
+\RequirePackage[italic]{mathastext}
 
 % Use tabular figures in some places
 \RequirePackage[ % Use them for ...
