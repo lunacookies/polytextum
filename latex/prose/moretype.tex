@@ -23,12 +23,9 @@
 % Microtypographic awesomeness!
 \RequirePackage[final]{microtype}
 
-% Custom letterspacing values
-\RequirePackage{letterspace}
-
 % Commands for letterspaced capitals
-\newcommand{\lowercaps}[1]{\textsc{\MakeLowercase{#1}}}
-\newcommand{\uppercaps}[1]{\textls[140]{{\MakeTextUppercase{#1}}}}
+\newcommand{\lowercaps}[1]{\textsc{\MakeTextLowercase{#1}}}
+\newcommand{\uppercaps}[1]{\textsc{\MakeTextUppercase{#1}}}
 
 % Command for abbreviations and acronyms
 \newcommand{\abbr}[1]{\lowercaps{#1}}
@@ -50,7 +47,6 @@
   BoldFont={.39438.otf},
   ItalicFont={.39440.otf},
   BoldItalicFont={.39439.otf},
-
   Ligatures={NoCommon} % Disable ligatures
 ]{.39441.otf}
 
@@ -60,7 +56,6 @@
   BoldFont={.39304.otf},
   ItalicFont={.39298.otf},
   BoldItalicFont={.39305.otf},
-
   Numbers={Proportional} % Use proportional text figures
 ]{.39297.otf}
 
