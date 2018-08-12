@@ -78,6 +78,30 @@
 \RequirePackage{tabularx}  % Allows you to wrap lines in a table
 \RequirePackage{textcase}  % Manipulate text capitalisation more easily
 
+% Prevents bad habits
+\RequirePackage[l2tabu, orthodox]{nag}
+
+% Proper hyphenation
+\RequirePackage[british]{babel}
+
+% Hyphenated left-aligned text
+\RequirePackage{ragged2e}
+
+% Filler text
+\RequirePackage{blindtext}
+\RequirePackage{kantlipsum}
+
+% Even better mathematical typesetting
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage[group-separator={,}]{siunitx}
+
+% Chemical typesetting
+\RequirePackage[version=4]{mhchem}
+
+% Command for a centered chemical formula
+\newcommand{\ch}[1]{\begin{figure}[ht]\centering\ce{#1}\end{figure}}
 
 %%
 %% Links
