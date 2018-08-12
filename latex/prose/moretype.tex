@@ -36,24 +36,13 @@
 % Command for fancier ampersand
 \newcommand{\oldand}{\textsw{\&}}
 
-% Use the Minion Pro font
-\RequirePackage[
-  fullfamily,     % Use all available weights
-  minionint,      % Use the integral symbols from MinionPro instead of MnSymbol
-  footnotefigures % Use native footnote figures
-]{MinionPro}
+% Allow loading system fonts
+\RequirePackage{fontspec}
 
-% Use built-in letterspaced small caps
-\renewcommand{\scdefault}{ssc}
-
-% Use proportional text figures
-\figureversion{
-  text,        % Text figures
-  proportional % Proportional figures
-}
+% Use Minion Pro
+\setromanfont{Minion Pro}
 
 % Use tabular figures in some places
-
 \RequirePackage[ % Use them for ...
   toc,           % toc item labels
   eqno,          % equation numbers
