@@ -24,7 +24,10 @@ sed -E 's/\(([A-Z][A-Z]+)/\(\\abbr{\1}/g' $2.mod2 > $2.mod3
 # Misc
 
 # Use the best ampersand for titling (in this context, headings)
-sed -E 's/^(#+)(.*)&(.*)/\1\2\\oldand{}\3/g' $2.mod3 > $2.finalmod
+sed -E 's/^(#+)(.*)&(.*)/\1\2\\oldand{}\3/g' $2.mod3 > $2.mod4
+
+# Converts markdown citations into BibLaTeX's format
+sed -E 's/\[\@(.+)\]/\\autocite{\1}/g' $2.mod4 > $2.finalmod
 
 
 ##
@@ -35,11 +38,11 @@ template=$HOME/.polytextum/templates
 
 # Convert the various document types into temporary tex files
 if [ $1 = "report" ]; then
-  pandoc -f markdown -t latex $2.finalmod -o $2.mod1.tex --template=$template/report.tex --top-level-division=chapter --biblatex
+  pandoc -f markdown -t latex $2.finalmod -o $2.mod1.tex --template=$template/report.tex --top-level-division=chapter
 elif [ $1 = "article" ]; then
-  pandoc -f markdown -t latex $2.finalmod -o $2.mod1.tex --template=$template/article.tex  --top-level-division=section --biblatex
+  pandoc -f markdown -t latex $2.finalmod -o $2.mod1.tex --template=$template/article.tex  --top-level-division=section
 elif [ $1 = "pres" ]; then
-  pandoc -f markdown -t beamer $2.finalmod -o $2.mod1.tex --template=$template/pres.tex --slide-level=2 --biblatex
+  pandoc -f markdown -t beamer $2.finalmod -o $2.mod1.tex --template=$template/pres.tex --slide-level=2
 else
   echo "Specified document type not valid. Try using report, article, or pres."
 fi
