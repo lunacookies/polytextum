@@ -80,7 +80,7 @@ output=$(dirname $(absolute_filename "$2"))
 
 mv $2.tex $output/output.tex
 
-latexmk -pdf -quiet $output/output.tex
+latexmk -pdflua -quiet $output/output.tex
 
 mv $output/output.pdf $output/tmp
 rm $output/output*
