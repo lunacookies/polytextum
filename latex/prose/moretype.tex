@@ -38,31 +38,33 @@
 
 % Settings that apply to all fonts
 \defaultfontfeatures{
-  Numbers={OldStyle}  % Use text figures
+  Numbers={OldStyle, Proportional}, % Use proportional text figures
+  SmallCapsFeatures={               % Letterspace small caps
+    LetterSpace=8.0
+  }
 }
 
-% Sabon from Typekit
+% Arno Pro from Typekit
 \setmainfont[
   Path={\string~/Library/Application Support/Adobe/CoreSync/plugins/livetype/.r/},
-  BoldFont={.39438.otf},
-  ItalicFont={.39440.otf},
-  BoldItalicFont={.39439.otf},
-  Ligatures={NoCommon} % Disable ligatures
-]{.39441.otf}
+  BoldFont={.8495.otf},
+  ItalicFont={.8494.otf},
+  BoldItalicFont={.8496.otf}
+]{.8493.otf}
 
-% Gill Sans Nova, also from Typekit
+% Scala Sans, also from Typekit
 \setsansfont[
   Path={\string~/Library/Application Support/Adobe/CoreSync/plugins/livetype/.r/},
-  BoldFont={.39304.otf},
-  ItalicFont={.39298.otf},
-  BoldItalicFont={.39305.otf},
-  Numbers={Proportional} % Use proportional text figures
-]{.39297.otf}
+  BoldFont={.39257.otf},
+  ItalicFont={.39259.otf},
+  BoldItalicFont={.39258.otf}
+]{.39262.otf}
 
 % Fira Mono, (you guessed it!) from Typekit
 \setmonofont[
     Path={\string~/Library/Application Support/Adobe/CoreSync/plugins/livetype/.r/},
     BoldFont={.22488.otf},
+    Numbers={Monospaced} % Use monospaced numbers
 ]{.22487.otf}
 
 % Use tabular figures in some places
