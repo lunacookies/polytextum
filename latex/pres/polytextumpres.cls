@@ -37,6 +37,9 @@
 % Use text figures in math
 \RequirePackage[italic]{mathastext}
 
+% Intelligently suppress ligatures
+\RequirePackage{selnolig}
+
 % Commands for letterspaced capitals
 \newcommand{\lowercaps}[1]{\textsc{\MakeLowercase{#1}}}
 \newcommand{\uppercaps}[1]{\textsc{\MakeUppercase{#1}}}

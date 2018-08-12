@@ -69,3 +69,9 @@
 % Same amount of space between sentences as between words
 \frenchspacing
 
+% Intelligently suppress ligatures
+\RequirePackage{selnolig}
+
+% Suppress purely ornamental Th ligaure
+\nolig{Th}{T|h}
+
