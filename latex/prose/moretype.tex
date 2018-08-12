@@ -39,8 +39,21 @@
 % Allow loading system fonts
 \RequirePackage{fontspec}
 
-% Use Minion Pro
-\setromanfont{Minion Pro}
+% Sabon from Typekit
+\setmainfont[
+  Path={\string~/Library/Application Support/Adobe/CoreSync/plugins/livetype/.r/},
+  BoldFont={.39438.otf},
+  ItalicFont={.39440.otf},
+  BoldItalicFont={.39439.otf},
+]{.39441.otf}
+
+% Gill Sans Nova, also from typekit
+\setsansfont[
+  Path={\string~/Library/Application Support/Adobe/CoreSync/plugins/livetype/.r/},
+  BoldFont={.39304.otf},
+  ItalicFont={.39298.otf},
+  BoldItalicFont={.39305.otf},
+]{.39297.otf}
 
 % Use tabular figures in some places
 \RequirePackage[ % Use them for ...
