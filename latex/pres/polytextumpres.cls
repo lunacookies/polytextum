@@ -12,9 +12,6 @@
   progressbar=frametitle % Show a prgress bar under the frame title
 ]{metropolis}
 
-% Use green colours instead of the orange-and-teal colours used by default
-\usecolortheme{spruce}
-
 
 %%
 %% Fonts
