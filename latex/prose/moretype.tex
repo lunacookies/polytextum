@@ -20,39 +20,8 @@
 \def\newthought #1 #2 #3 {\vspace{15pt plus 5pt minus 2pt}\noindent {\lowercaps{#1}} {\lowercaps{#2}} {\lowercaps{#3}} }
 \def\longnewthought #1 #2 #3 #4 {\vspace{15pt plus 5pt minus 2pt}\noindent {\lowercaps{#1}} {\lowercaps{#2}} {\lowercaps{#3}} {\lowercaps{#4}} }
 
-% Allow utf8 input
-\RequirePackage[utf8]{inputenc}
-
 % Microtypographic awesomeness!
-\RequirePackage[
-  final,        % Always use microtype; even when the draft option is used
-  kerning=true, % Allow the custom kerning used below
-  spacing=true, % Adjust space between words microtypographically
-]{microtype}
-
-% Disable purely ornamental Th ligature
-\DisableLigatures[T]{encoding={*}}
-
-% Track small caps by 80 units; 8 percent; 0.08 em
-\SetTracking{encoding={*}, shape=sc}{80}
-
-% Add extra space around some analphabetics as a hybrid between English and
-% French spacing
-\SetExtraKerning[unit=space]
-  {
-    encoding={*},
-    size={footnotesize,small,normalsize}
-  }{
-  \textendash={200,200},      % en-dash
-   "28={ ,250},               % left parenthesis
-   "29={250, },               % right parenthesis
-   ?={150, },                 % question mark
-   !={150, },                 % exclamation mark
-   :={150, },                 % colon
-   ;={150, },                 % semicolon
-   \textquotedblleft={ ,150}, % left quotation mark
-   \textquotedblright={150, } % right quotation mark
- }
+\RequirePackage[final]{microtype}
 
 % Custom letterspacing values
 \RequirePackage{letterspace}
@@ -73,10 +42,6 @@
   minionint,      % Use the integral symbols from MinionPro instead of MnSymbol
   footnotefigures % Use native footnote figures
 ]{MinionPro}
-
-% Make ligatures searchable
-\input glyphtounicode
-\pdfgentounicode=1
 
 % Use built-in letterspaced small caps
 \renewcommand{\scdefault}{ssc}
