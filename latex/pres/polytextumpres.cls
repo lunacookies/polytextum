@@ -23,12 +23,16 @@
 % Load system fonts
 \RequirePackage[no-math]{fontspec}
 
-% Use text figures instead of lining figures
+% Use text figures everywhere
+\defaultfontfeatures{Numbers={OldStyle}}
+
+% Replace Fira Sans with Scala Sans
 \setsansfont[
-  BoldFont={Fira Sans},
-  Numbers={OldStyle},
-  SmallCapsFeatures={LetterSpace={10}},
-]{Fira Sans Light}
+  BoldFont={Scala Sans Pro} % Disable bold font
+]{Scala Sans Pro}
+
+% Use the OpenType version of Fira Mono
+\setmonofont[Scale=MatchLowercase]{Fira Mono OT}
 
 % Use text figures in math
 \RequirePackage[italic]{mathastext}
