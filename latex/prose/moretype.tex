@@ -68,8 +68,12 @@
 ]{Fira Mono OT}
 
 % Set up swash italics
-\newfontface\Swash{Arno Pro}[Contextuals=Swash]
-\DeclareTextFontCommand{\textsw}{\Swash}
+\DeclareTextFontCommand{\textsw}{
+  \itshape\addfontfeature{
+    Style=Swash,
+    Contextuals=Swash
+  }
+}
 
 % Generate math fonts from system fonts
 \RequirePackage[italic]{mathastext}
