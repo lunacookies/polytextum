@@ -1,0 +1,31 @@
+%%%
+%%% moretitling.sty -- Titles and titlepages
+%%%
+
+% Typeset an inline title with \maketitle
+\renewcommand{\maketitle}{%
+  \begin{flushleft}
+    {\uppercaps{\thetitle}\par}%
+    {\vspace{14.8pt} \hrule\vspace{14.8pt}}
+    {\small{\itshape\theauthor}\par}%
+    {\small{\itshape\thedate}}%
+  \end{flushleft}
+}
+
+% Typeset a titlepage with \maketitlepage
+\newcommand{\maketitlepage}[2]{%
+  \begin{titlingpage}
+    \null\vspace{8pc}
+
+    {\large\theauthor\par}%
+    \vspace{3pc}
+
+    {\Large\color{red}\uppercaps{#1}\par}%
+    \vspace{0.5em}
+    {\Large\color{red}\uppercaps{#2}\par}%
+    \vspace{3pc}
+
+    \vfill
+    {\large \thedate\par}%
+  \end{titlingpage}
+}

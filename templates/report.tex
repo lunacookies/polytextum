@@ -1,27 +1,5 @@
 \documentclass[$if(sidenotes)$sidenotes,$endif$$if(twoside)$twoside,$endif$]{polytextumprose}
 
-% Titlepage
-\renewcommand{\maketitle}{%
-  \begin{titlingpage}
-    \null\vspace{8pc}
-
-    {\large\theauthor\par}%
-    \vspace{3pc}
-
-    $if(title1)$
-    {\Large\color{red}\uppercaps{$title1$}\par}%
-    \vspace{0.5em}
-    {\Large\color{red}\uppercaps{$title2$}\par}%
-    $else$
-    {\Large\color{red}\uppercaps{$title$}\par}%
-    $endif$
-    \vspace{3pc}
-
-    \vfill
-    {\large \thedate\par}%
-  \end{titlingpage}
-}
-
 % Metadata
 \title{$title$}
 
@@ -58,7 +36,11 @@ $endif$
 \pagestyle{myps}
 
 \pagenumbering{roman}
-\maketitle
+$if(title1)$
+\maketitlepage{$title1$}{$title2$}
+$else$
+\maketitlepage{$title$}{}
+$endif$
 \tableofcontents*
 \cleardoublepage
 

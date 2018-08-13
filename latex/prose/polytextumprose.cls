@@ -23,5 +23,6 @@
 \input{moremargins}
 \input{moretoc}
 \input{morelink}
+\input{moretitling}
 
 \endinput
