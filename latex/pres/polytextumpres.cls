@@ -41,8 +41,18 @@
 \RequirePackage{selnolig}
 
 % Commands for letterspaced capitals
-\newcommand{\lowercaps}[1]{\textsc{\MakeLowercase{#1}}}
-\newcommand{\uppercaps}[1]{\textsc{\MakeUppercase{#1}}}
+\newcommand{\lowercaps}[1]{
+  \textsc{\addfontfeature{
+    Letters={UppercaseSmallCaps}
+  }#1}
+}
+\newcommand{\uppercaps}[1]{
+  \textsc{\addfontfeature{
+    Letters={Uppercase},
+    Kerning={Uppercase},
+    LetterSpace=15
+  }\MakeTextUppercase{#1}}
+}
 
 % Commands for declerative formatting
 \newcommand{\abbr}[1]{\lowercaps{#1}}
