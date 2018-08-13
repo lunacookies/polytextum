@@ -38,7 +38,15 @@
 }
 
 % (Sub)section styles
-\setsecheadstyle{\raggedright\normalfont\scshape\needspace{1em}\lowercase}
+\setsecheadstyle{
+  \raggedright     % Don't center
+  \normalfont      % Same size as body text
+  \scshape         % Inherit small caps settings (e.g. letterspacing)
+  \addfontfeature{ % Make uppercase letters look like small caps
+    Letters=UppercaseSmallCaps
+  }
+  \needspace{1em}  % Keep with next paragraph
+}
 \setbeforesecskip{-15pt plus 5pt}
 \setaftersecskip{15pt minus 5pt}
 
