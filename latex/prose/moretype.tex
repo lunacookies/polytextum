@@ -95,3 +95,11 @@
 % Suppress purely ornamental Th ligaure
 \nolig{Th}{T|h}
 
+% Allow customsation of (the typography of (the content of floats))
+\RequirePackage{floatrow}
+
+% Use sanserif for figure and table content
+\DeclareFloatFont{mystyle}{\sffamily}
+\floatsetup[figure]{font=mystyle}
+\floatsetup[table]{font=mystyle}
+
