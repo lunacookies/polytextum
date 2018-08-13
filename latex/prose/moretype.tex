@@ -23,8 +23,18 @@
 \RequirePackage[final]{microtype}
 
 % Commands for letterspaced capitals
-\newcommand{\lowercaps}[1]{\textsc{\MakeTextLowercase{#1}}}
-\newcommand{\uppercaps}[1]{\textsc{\MakeTextUppercase{#1}}}
+\newcommand{\lowercaps}[1]{
+  \textsc{\addfontfeature{
+    Letters={UppercaseSmallCaps}
+  }#1}
+}
+\newcommand{\uppercaps}[1]{
+  \textsc{\addfontfeature{
+    Letters={Uppercase},
+    Kerning={Uppercase},
+    LetterSpace=15
+  }\MakeTextUppercase{#1}}
+}
 
 % Command for abbreviations and acronyms
 \newcommand{\abbr}[1]{\lowercaps{#1}}
