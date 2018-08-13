@@ -25,4 +25,8 @@
 \input{morelink}
 \input{moretitling}
 
+% Odds and ends
+\chapterstyle{mychapter}
+\pagestyle{myps}
+
 \endinput

@@ -10,6 +10,12 @@
     {\small{\itshape\theauthor}\par}%
     {\small{\itshape\thedate}}%
   \end{flushleft}
+
+  % This removes the indent afterwards
+  \makeatletter
+  \@afterindentfalse
+  \@afterheading
+  \makeatother
 }
 
 % Typeset a titlepage with \maketitlepage
