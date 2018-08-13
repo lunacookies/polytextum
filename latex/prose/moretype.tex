@@ -7,10 +7,10 @@
 \widowpenalty=1000
 \tolerance=300
 
-% Set a point size of 12.5 and leading of 15pt for the body text
+% Set a point size of 12 and leading of 15pt for the body text
 \renewcommand\Large{\@setfontsize\Large{16pt}{20pt}}
 \renewcommand\large{\@setfontsize\large{15pt}{18pt}}
-\renewcommand\normalsize{\@setfontsize\normalsize{12.5pt}{15pt}}
+\renewcommand\normalsize{\@setfontsize\normalsize{12pt}{15pt}}
 \renewcommand\small{\@setfontsize\small{10pt}{13pt}}
 
 % Create \newthought and \longnewthought commands for starting a new section
@@ -43,16 +43,18 @@
   }
 }
 
-% Arno Pro from Typekit
-\setmainfont{Arno Pro}
+% Scala Sans from Typekit
+% We set scale to one here because Arno is pretty small in its font file
+\setsansfont[Scale=1]{Scala Sans Pro}
 
-% Scala Sans, also from Typekit
-\setsansfont[Scale=MatchLowercase]{Scala Sans Pro}
+% Arno Pro from Typekit
+% Match x-height to Scala Sans
+\setromanfont[Scale=MatchLowercase]{Arno Pro}
 
 % Fira Mono, (you guessed it!) from Typekit
 \setmonofont[
     Numbers={Monospaced}, % Use monospaced numbers
-    Scale=MatchLowercase
+    Scale=MatchLowercase  % Match size to Scala Sans
 ]{Fira Mono OT}
 
 % Generate math fonts from system fonts
