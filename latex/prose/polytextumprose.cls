@@ -26,7 +26,7 @@
 \input{moretitling}
 
 % Odds and ends
-\chapterstyle{mychapter}
-\pagestyle{myps}
+\chapterstyle{polytextum}
+\pagestyle{polytextum}
 
 \endinput

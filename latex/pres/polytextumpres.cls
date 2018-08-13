@@ -119,7 +119,7 @@
 
 \RequirePackage{hyperref}
 
-% Use sans-serif font for links
+% Use sanserif font for links
 \urlstyle{sf}
 
 % Set link colours

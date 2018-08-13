@@ -9,9 +9,9 @@
 \abnormalparskip{0em}
 
 % Plain headers and footers
-\makepagestyle{myps}
-\makeevenfoot{myps}{\normalfont\thepage}{}{}
-\makeoddfoot{myps}{}{}{\normalfont\thepage}
+\makepagestyle{polytextum}
+\makeevenfoot{polytextum}{\normalfont\thepage}{}{}
+\makeoddfoot{polytextum}{}{}{\normalfont\thepage}
 
 % Set header and footer heights
 \setlength{\headheight}{15pt}
@@ -19,13 +19,13 @@
 
 % Empty part page style
 \aliaspagestyle{part}{empty}
-\aliaspagestyle{chapter}{myps}
+\aliaspagestyle{chapter}{polytextum}
 
 % Do not number anything
 \setsecnumdepth{none}
 
 % Chapter style
-\makechapterstyle{mychapter}{%
+\makechapterstyle{polytextum}{%
   \renewcommand{\chapterheadstart}{}
   \renewcommand{\printchaptername}{}
   \renewcommand{\chapternamenum}{}
@@ -34,7 +34,7 @@
   \renewcommand{\printchaptertitle}[1]{%
     \raggedright\uppercaps{##1}}
   \renewcommand{\afterchaptertitle}{%
-    \vspace{14.8pt} \hrule\vspace{15pt plus 5pt}}
+    \vspace{14.8pt} \hrule\vspace{14.8pt}\vspace*{0pt plus 5pt}}
 }
 
 % (Sub)section styles
