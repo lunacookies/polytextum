@@ -1,7 +1,11 @@
 \documentclass[$if(sidenotes)$sidenotes,$endif$$if(twoside)$twoside,$endif$]{polytextumprose}
 
 % Metadata
+$if(formattedtitle)$
+\title{$formattedtitle$}
+$else$
 \title{$title$}
+$endif$
 
 $if(author)$
 \author{$author$}

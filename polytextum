@@ -23,11 +23,13 @@ sed -E 's/\(([A-Z][A-Z]+)/\(\\abbr{\1}/g' $2.mod2 > $2.mod3
 
 # Misc
 
-# Use the best ampersand for titling (in this context, headings)
+# Use the best ampersand for titling
 sed -E 's/^(#+)(.*)&(.*)/\1\2\\oldand{}\3/g' $2.mod3 > $2.mod4
+sed -E 's/^(title: )(.*)&(.*)/\1\2\&\3\
+formattedtitle: \2\\oldand{}\3/g' $2.mod4 > $2.mod5
 
 # Converts markdown citations into BibLaTeX's format
-sed -E 's/\[\@(.+)\]/\\autocite{\1}/g' $2.mod4 > $2.finalmod
+sed -E 's/\[\@(.+)\]/\\autocite{\1}/g' $2.mod5 > $2.finalmod
 
 
 ##
