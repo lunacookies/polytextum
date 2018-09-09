@@ -23,16 +23,25 @@
 % Load system fonts
 \RequirePackage[no-math]{fontspec}
 
-% Use text figures everywhere
-\defaultfontfeatures{Numbers={OldStyle}}
+% These features are applied to all fonts
+\defaultfontfeatures{
+  Numbers={OldStyle}, % Use text figures everywhere
+  Path={/Users/aramis/.local/share/polytextum/fonts/}
+}
 
 % Replace Fira Sans with Scala Sans
 \setsansfont[
-  BoldFont={Scala Sans Pro} % Disable bold font
-]{Scala Sans Pro}
+  ItalicFont=*-Ita,
+  BoldFont=*, % Disable bold font
+  BoldItalicFont=*-BoldIta,
+  Scale=1     % Scale other fonts to match this one
+]{ScalaSansPro}
 
 % Use the OpenType version of Fira Mono
-\setmonofont[Scale=MatchLowercase]{Fira Mono OT}
+\setmonofont[
+  BoldFont=*-Bold,
+  Scale=MatchLowercase
+]{FiraMonoOT}
 
 % Use text figures in math
 \RequirePackage[italic]{mathastext}
