@@ -56,11 +56,11 @@
   }#1}
 }
 \newcommand{\uppercaps}[1]{
-  \textsc{\addfontfeature{
+  \addfontfeature{
     Letters={Uppercase},
     Kerning={Uppercase},
     LetterSpace=15
-  }\MakeTextUppercase{#1}}
+  }\MakeTextUppercase{#1}
 }
 
 % Commands for declerative formatting
