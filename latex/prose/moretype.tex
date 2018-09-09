@@ -19,6 +19,14 @@
 \def\newthought #1 #2 #3 {\vspace{15pt plus 5pt minus 2pt}\noindent {\lowercaps{#1}} {\lowercaps{#2}} {\lowercaps{#3}} }
 \def\longnewthought #1 #2 #3 #4 {\vspace{15pt plus 5pt minus 2pt}\noindent {\lowercaps{#1}} {\lowercaps{#2}} {\lowercaps{#3}} {\lowercaps{#4}} }
 
+% Create a command for finishing off a long document
+\newcommand{\finalfleuron}{
+  \vspace{\baselineskip}
+  \centering
+  \addfontfeature{Ornament=4}
+  \large\textbullet\normalsize\normalfont\
+}
+
 % Microtypographic awesomeness!
 \RequirePackage[final]{microtype}
 
