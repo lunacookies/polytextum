@@ -49,23 +49,36 @@
 \defaultfontfeatures{
   Numbers={OldStyle, Proportional}, % Use proportional text figures
   SmallCapsFeatures={               % Letterspace small caps
-    LetterSpace=8.0
-  }
+    LetterSpace=5.0
+  },
+  Path={/Users/aramis/.local/share/polytextum/fonts/}
 }
 
 % Scala Sans from Typekit
 % We set scale to one here because Arno is pretty small in its font file
-\setsansfont[Scale=1]{Scala Sans Pro}
+\setsansfont[
+  ItalicFont=*-Ita,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldIta,
+  Scale=1
+]{ScalaSansPro}
 
 % Arno Pro from Typekit
 % Match x-height to Scala Sans
-\setromanfont[Scale=MatchLowercase]{Arno Pro}
+\setromanfont[
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+  Scale=MatchLowercase
+]{ArnoPro}
 
-% Fira Mono, (you guessed it!) from Typekit
+% Fira Mono, from (you guessed it!) Typekit
 \setmonofont[
-    Numbers={Monospaced}, % Use monospaced numbers
-    Scale=MatchLowercase  % Match size to Scala Sans
-]{Fira Mono OT}
+  BoldFont=*-Bold,
+  Numbers={Monospaced}, % Use monospaced numbers
+  Scale=MatchLowercase  % Match size to Scala Sans
+]{FiraMonoOT}
 
 % Set up swash italics
 \DeclareTextFontCommand{\textsw}{
