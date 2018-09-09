@@ -31,17 +31,13 @@
 \RequirePackage[final]{microtype}
 
 % Commands for letterspaced capitals
-\newcommand{\lowercaps}[1]{
-  \textsc{\addfontfeature{
-    Letters={UppercaseSmallCaps}
-  }#1}
-}
+\newcommand{\lowercaps}[1]{\textsc{\addfontfeature{Letters={UppercaseSmallCaps}}#1}}
 \newcommand{\uppercaps}[1]{
-  \textsc{\addfontfeature{
+  \addfontfeature{
     Letters={Uppercase},
     Kerning={Uppercase},
     LetterSpace=15
-  }\MakeTextUppercase{#1}}
+  }{\MakeTextUppercase{#1}}
 }
 
 % Command for abbreviations and acronyms
