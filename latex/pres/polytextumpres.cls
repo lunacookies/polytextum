@@ -137,7 +137,7 @@
   linkcolor=black,
   anchorcolor=black,
   citecolor=black,
-  urlcolor=MSUgreen,
+  urlcolor=mLightBrown,
   breaklinks,
   pdfborder=0 0 0,
 }
