@@ -47,12 +47,12 @@
   }
   \needspace{1em}  % Keep with next paragraph
 }
-\setbeforesecskip{-15pt plus 5pt}
-\setaftersecskip{15pt minus 5pt}
+\setbeforesecskip{-\baselineskip}
+\setaftersecskip{\baselineskip}
 
 \setsubsecheadstyle{\raggedright\normalfont\itshape\needspace{1em}}
-\setbeforesubsecskip{-15pt minus 5pt}
-\setaftersubsecskip{15pt minus 5pt}
+\setbeforesubsecskip{-\baselineskip}
+\setaftersubsecskip{\baselineskip}
 
 % Allows customisation of lists
 \RequirePackage{enumitem}
@@ -68,7 +68,7 @@
 
 % Place list labels in margin and leave a (flexible) empty line above and below
 % lists
-\setlist[1]{leftmargin=0em,topsep=15pt plus 5pt minus 5pt}
+\setlist[1]{leftmargin=0em,topsep=\baselineskip}
 \setlist[2]{leftmargin=1em}
 \setlist[3]{leftmargin=2em}
 \setlist[4]{leftmargin=3em}
