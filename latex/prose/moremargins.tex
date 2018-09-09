@@ -3,9 +3,8 @@
 %%%
 
 % Set width of typeblock in accordance with copyfitting table from The Elements
-% of Typographic Style; the lowercase Minion Pro alphabet at 12pt is 143.99 pt
-% long.
-\settypeblocksize{*}{27pc}{2}
+% of Typographic Style. Set the typeblock height to be equal to 42 lines.
+\settypeblocksize{42\baselineskip}{27pc}{*}
 
 % Traditional vertical margin ratio
 \setulmargins{*}{*}{2}
@@ -38,9 +37,11 @@
   % Place all figures inline with the text
   \newcommand{\myfig}[2]{
     \begin{figure}[ht]
+      \vspace{0pt plus 8pt}
       \centering
       \includegraphics[width=\linewidth]{#1}
       \caption*{#2}
+      \vspace{0pt plus 8pt}
     \end{figure}
   }
 }
