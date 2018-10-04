@@ -3,19 +3,18 @@
 \NeedsTeXFormat{LaTeX2e}
 \LoadClass{beamer}
 
-%%
-%% Theme
-%%
+%
+% Theme
+%
 
 % Use the metropolis theme for a more modern layout
 \usetheme[
   progressbar=frametitle % Show a prgress bar under the frame title
 ]{metropolis}
 
-
-%%
-%% Fonts
-%%
+%
+% Fonts
+%
 
 % Microtypographic awesomeness!
 \RequirePackage[final]{microtype}
@@ -67,10 +66,9 @@
 \newcommand{\abbr}[1]{\lowercaps{#1}}
 \newcommand{\oldand}[1]{\&}
 
-
-%%
-%% Bibliography
-%%
+%
+% Bibliography
+%
 
 % Required by biblatex
 \RequirePackage{csquotes}
@@ -86,10 +84,9 @@
 % Set bibliography source file
 \addbibresource{refs.bib}
 
-
-%%
-%% Random packages
-%%
+%
+% Random packages
+%
 
 \RequirePackage{booktabs}  % Fancy rules for tables
 \RequirePackage{graphicx}  % Add images
@@ -122,9 +119,9 @@
 % Command for a centered chemical formula
 \newcommand{\ch}[1]{\begin{figure}[ht]\centering\ce{#1}\end{figure}}
 
-%%
-%% Links
-%%
+%
+% Links
+%
 
 \RequirePackage{hyperref}
 
