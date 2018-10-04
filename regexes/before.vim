@@ -21,4 +21,3 @@ silent! %s/\v\(([A-Z][A-Z]+)/\(\\abbr{\1}/
 
 " Converts markdown citations into BibLaTeX's format
 silent! %s/\v\[\@(.+)\]/\\autocite{\1}/
-

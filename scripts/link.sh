@@ -12,4 +12,3 @@ done
 for file in latex/pres/*; do
   ln -s $PWD/$file $(kpsewhich -var-value=TEXMFHOME)/tex/latex/polytextum/$(basename $file)
 done
-

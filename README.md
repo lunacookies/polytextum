@@ -18,4 +18,3 @@ better).
 1. Run `bash ~/.polytextum/link.sh`
 1. Start turning markdown documents into slide shows, articles, 
    and reports!
-

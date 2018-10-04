@@ -10,17 +10,15 @@ vimregexrunner() {
   vim -Nu NONE +"so $1 | w! $3 | q!" $2
 }
 
-
-##
-## Modify before convert
-##
+#
+# Modify before convert
+#
 
 vimregexrunner "~/.polytextum/regexes/before.vim" "$2" "$2.before"
 
-
-##
-## Convert
-##
+#
+# Convert
+#
 
 template=$HOME/.polytextum/templates
 
@@ -35,26 +33,23 @@ else
   echo "Specified document type not valid. Try using report, article, or pres."
 fi
 
-
-##
-## Modify after convert
-##
+#
+# Modify after convert
+#
 
 vimregexrunner "~/.polytextum/regexes/after.vim" "$2.after" "$2.tex"
 
-
-##
-## Clean up
-##
+#
+# Clean up
+#
 
 # Remove all the temporary files that this script creates
 rm $2.before
 rm $2.after
 
-
-##
-## Compile
-##
+#
+# Compile
+#
 
 absolute_filename() {
   echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"

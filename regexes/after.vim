@@ -25,4 +25,3 @@ silent! g/\\tightlist/d
 
 " When you have a subsection after section
 " silent %s/\v\\vskipnextgrid\\noindent\\ignorespaces (\\hypertarget)/\\vskipnextgrid\1/
-
