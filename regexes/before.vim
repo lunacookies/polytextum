@@ -14,6 +14,9 @@ silent! %s/\v([A-Za-z0-9.,:?;\)\"\x27}|#-] )([A-Z][A-Z]+)/\1\\abbr{\2}/
 " Matches abbreviation at the start of a line
 silent! %s/\v^([A-Z][A-Z]+)/\\abbr{\1}/
 
+" Matches abbreviation after a hyphen
+silent! %s/\v-([A-Z][A-Z]+)/-\\abbr{\1}/
+
 " Matches abbreviation after parentheses
 silent! %s/\v\(([A-Z][A-Z]+)/\(\\abbr{\1}/
 
