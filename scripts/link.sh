@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd $HOME/.polytextum
+
 # Create necessary dir(s)
 mkdir -pv $(kpsewhich -var-value=TEXMFHOME)/tex/latex/polytextum
 
