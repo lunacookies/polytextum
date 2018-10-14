@@ -10,18 +10,7 @@ silent! %s/\v^(\\.*title.*) \\\&(.*)/\1\\ \\oldand{}\2/
 silent! g/\\def\\labelenumi/d
 silent! g/\\tightlist/d
 
-" Skip a line above and below lists
-" silent! %s/\v^(\\begin{(itemize|enumerate|description)})/\\vskipnextgrid\1/
-" silent! %s/\v^(\\end{(itemize|enumerate|description)})/\1\\vskipnextgrid\\ignorespaces/
-
-" Skip a line after section headings
-" silent! %s/\v(\\.*section.*\n\n)/\1\\vskipnextgrid\\noindent\\ignorespaces /
-
-" Fix some edge cases
-
-" When you have a list right before/after a heading
-" silent! %s/\v\\vskipnextgrid\\noindent\\ignorespaces (\\vskipnextgrid)/\1/
-" silent! %s/\v\\vskipnextgrid\\ignorespaces(\n\n\\hyper)/\1/
-
-" When you have a subsection after section
-" silent %s/\v\\vskipnextgrid\\noindent\\ignorespaces (\\hypertarget)/\\vskipnextgrid\1/
+" Replace pandoc's conversion of ... or … into \ldots{} with converting to the
+" Unicode character to make sure the amount of spacing between the three
+" ellipses is consistent with what the typeface's designer(s) intended
+silent! %s/\\ldots{}/…/
