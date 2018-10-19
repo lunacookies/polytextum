@@ -51,15 +51,15 @@
 
 % Settings that apply to all fonts
 \defaultfontfeatures{
-  Numbers={OldStyle, Proportional}, % Use proportional text figures
   SmallCapsFeatures={               % Letterspace small caps
     LetterSpace=5.0
   },
   Path={/Users/aramis/.local/share/polytextum/fonts/}
 }
 
-% Scala Sans from Typekit
+% Scala Sans from Adobe Fonts
 % We set scale to one here because Arno is pretty small in its font file
+% Proportional text figures are default here
 \setsansfont[
   ItalicFont=*-Ita,
   BoldFont=*-Bold,
@@ -67,22 +67,25 @@
   Scale=1
 ]{ScalaSansPro}
 
-% Arno Pro from Typekit
-% Match x-height to Scala Sans
+% Arno Pro from Adobe Fonts
 \setromanfont[
   UprightFont=*-Regular,
   ItalicFont=*-Italic,
-  BoldFont=*-Bold,
-  BoldItalicFont=*-BoldItalic,
-  Scale=MatchLowercase
+  BoldFont=*-Smbd,
+  BoldItalicFont=*-SmbdItalic,
+  Numbers={OldStyle, Proportional}, % Use proportional text figures
+  Scale=MatchLowercase,             % Maatch x-height to Scala Sans
 ]{ArnoPro}
 
-% Fira Mono, from (you guessed it!) Typekit
+% Nexus Typewriter Pro, from (you guessed it!) Adobe Fonts
+% Monospaced text figures are default here
 \setmonofont[
+  UprightFont=*,
+  ItalicFont=*-Italic,
   BoldFont=*-Bold,
-  Numbers={Monospaced}, % Use monospaced numbers
+  BoldItalicFont=*-BoldItalic,
   Scale=MatchLowercase  % Match size to Scala Sans
-]{FiraMonoOT}
+]{NexusTypewriterPro}
 
 % Set up swash italics
 \DeclareTextFontCommand{\textsw}{
