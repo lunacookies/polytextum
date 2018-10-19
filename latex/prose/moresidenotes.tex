@@ -22,21 +22,18 @@
   }
 }
 
+% Command for typesetting the sidenote marker
+\newcommand{\sidemark}[1]{#1.}
+
 % Floating margin notes (for automatic alignment)
 \newcommand{\myside}[1]{%
-  % Insert the superscript marker so the reader can eaily refer to a given
-  % sidenote
   \footnotemark%
   \ignorespaces%
   \marginpar{%
-    % We use enumerate with the nosep option to easily hang the number in the
-    % margin, while not breaking vertical spacing in the column of sidenotes
-    \begin{enumerate}[nosep]
-      % Use a custom list item label to insert the sidenote number
-      \item[\thefootnote]
-      \argonflush
-      \small #1
-    \end{enumerate}
+    \small
+    \sidemark{\thefootnote}%
+    \argonflush
+    #1
   }
   \unskip%
 }
