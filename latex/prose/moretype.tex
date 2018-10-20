@@ -54,7 +54,10 @@
   SmallCapsFeatures={               % Letterspace small caps
     LetterSpace=5.0
   },
-  Path={/Users/aramis/.local/share/polytextum/fonts/}
+  % Path to where installfonts.sh copies fonts from Adobe Fonts
+  Path={/Users/aramis/.local/share/polytextum/fonts/},
+  % All of Adobe Fonts is .otf, so let’s declare that
+  Extension=.otf
 }
 
 % Scala Sans from Adobe Fonts
@@ -69,12 +72,50 @@
 
 % Arno Pro from Adobe Fonts
 \setromanfont[
-  UprightFont=*-Regular,
-  ItalicFont=*-Italic,
-  BoldFont=*-Smbd,
-  BoldItalicFont=*-SmbdItalic,
+  % Regular settings
   Numbers={OldStyle, Proportional}, % Use proportional text figures
-  Scale=MatchLowercase,             % Maatch x-height to Scala Sans
+  Scale=MatchLowercase,             % Match x-height to Scala Sans
+  % Optical sizes
+  UprightFont=*-Regular,
+  UprightFeatures={
+    SizeFeatures={
+      {Size={-8.4},     Font=*-Caption},
+      {Size={8.5-10.9}, Font=*-SmText},
+      {Size={11-13.9}},
+      {Size={14-21.4},  Font=*-Subhead},
+      {Size={21.5-},    Font=*-Display}
+    },
+  },
+  ItalicFont=*-Italic,
+  ItalicFeatures={
+    SizeFeatures={
+      {Size={-8.4},     Font=*-ItalicCaption},
+      {Size={8.5-10.9}, Font=*-ItalicSmText},
+      {Size={11-13.9}},
+      {Size={14-21.4},  Font=*-ItalicSubhead},
+      {Size={21.5-},    Font=*-ItalicDisplay}
+    },
+  },
+  BoldFont=*-Smbd,
+  BoldFeatures={
+    SizeFeatures={
+      {Size={-8.4},     Font=*-SmbdCaption},
+      {Size={8.5-10.9}, Font=*-SmbdSmText},
+      {Size={11-13.9}},
+      {Size={14-21.4},  Font=*-SmbdSubhead},
+      {Size={21.5-},    Font=*-SmbdDisplay}
+    },
+  },
+  BoldItalicFont=*-SmbdItalic,
+  BoldItalicFeatures={
+    SizeFeatures={
+      {Size={-8.4},     Font=*-SmbdItalicCaption},
+      {Size={8.5-10.9}, Font=*-SmbdItalicSmText},
+      {Size={11-13.9}},
+      {Size={14-21.4},  Font=*-SmbdItalicSubhead},
+      {Size={21.5-},    Font=*-SmbdItalicDisplay}
+    },
+  },
 ]{ArnoPro}
 
 % Nexus Typewriter Pro, from (you guessed it!) Adobe Fonts
