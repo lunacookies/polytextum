@@ -5,5 +5,20 @@
 % Allow custom colours
 \RequirePackage{xcolor}
 
-\definecolor{red}{HTML}{AD1737}
-\definecolor{brown}{HTML}{990000}
+% Define some colours
+\definecolor{red}{HTML}{b2220c}
+\definecolor{darkred}{HTML}{991600}
+\definecolor{blue}{HTML}{1a138c}
+\definecolor{darkblue}{HTML}{3f3c70}
+
+% Map various 'colour variables' to the colours defined above depending on
+% whether the user requests a blue colour scheme or a red one
+\ifthenelse{\boolean{@argon@colour}}{%
+  \colorlet{bigtitle}{blue}
+  \colorlet{tocnum}{darkblue}
+  \colorlet{url}{darkblue}
+}{
+  \colorlet{bigtitle}{red}
+  \colorlet{tocnum}{darkred}
+  \colorlet{url}{darkred}
+}
