@@ -59,16 +59,6 @@ absolute_filename() {
 }
 output=$(dirname $(absolute_filename "$2"))
 
-# First, we rename the generated latex file to output.tex to ensure the generated
-# PDF is called output.pdf. Then we compile using latexmk. Finally, the
-# generated latex files are removed.
-
+# Make sure the output file is called output.pdf, then compile.
 mv $2.tex $output/output.tex
-
-latexmk -pdflua -quiet $output/output.tex
-
-mv $output/output.pdf $output/tmp
-rm $output/output*
-rm $output/*log
-mv $output/tmp $output/output.pdf
-
+latexmk -pdflua $output/output.tex
