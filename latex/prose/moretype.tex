@@ -16,8 +16,8 @@
 % Create \newthought and \longnewthought commands for starting a new section
 % without a section heading. It adds a little vertical space and sets three or
 % four words in all small caps.
-\def\newthought #1 #2 #3 {\vspace{1\baselineskip plus 5pt minus 2pt}\noindent {\lowercaps{#1}} {\lowercaps{#2}} {\lowercaps{#3}} }
-\def\longnewthought #1 #2 #3 #4 {\vspace{1\baselineskip plus 5pt minus 2pt}\noindent {\lowercaps{#1}} {\lowercaps{#2}} {\lowercaps{#3}} {\lowercaps{#4}} }
+\def\newthought #1 #2 #3 {\vspace{1\baselineskip plus 5pt minus 2pt}\noindent {\lowercaps{#1 #2 #3}} }
+\def\longnewthought #1 #2 #3 #4 {\vspace{1\baselineskip plus 5pt minus 2pt}\noindent {\lowercaps{#1 #2 #3 #4}} }
 
 % Create a command for finishing off a long document
 \newcommand{\finalfleuron}{
