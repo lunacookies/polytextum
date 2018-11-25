@@ -24,11 +24,14 @@ template=$HOME/.polytextum/templates
 
 # Convert the various document types into temporary tex files
 if [ $1 = "report" ]; then
-  pandoc -f markdown -t latex $2.before -o $2.after --template=$template/report.tex --top-level-division=chapter
+  pandoc -f markdown -t latex $2.before -o $2.after \
+    --template=$template/report.tex --top-level-division=chapter
 elif [ $1 = "article" ]; then
-  pandoc -f markdown -t latex $2.before -o $2.after --template=$template/article.tex  --top-level-division=section
+  pandoc -f markdown -t latex $2.before -o $2.after \
+    --template=$template/article.tex  --top-level-division=section
 elif [ $1 = "pres" ]; then
-  pandoc -f markdown -t beamer $2.before -o $2.after --template=$template/pres.tex --slide-level=2
+  pandoc -f markdown -t beamer $2.before -o $2.after \
+    --template=$template/pres.tex --slide-level=2
 else
   echo "Specified document type not valid. Try using report, article, or pres."
 fi
