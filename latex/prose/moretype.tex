@@ -39,7 +39,11 @@
 }
 
 % Microtypographic awesomeness!
-\RequirePackage[final]{microtype}
+\RequirePackage[
+  final,      % Activate even with draft class option
+  stretch=30, % Allow font expansion to stretch and shrink the font by 3%
+  shrink=30
+]{microtype}
 
 % Commands for letterspaced capitals
 \newcommand{\lowercaps}[1]{\textsc{\addfontfeature{Letters={UppercaseSmallCaps}}#1}}
