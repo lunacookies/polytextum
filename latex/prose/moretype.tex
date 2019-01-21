@@ -74,8 +74,9 @@
   % All of Adobe Fonts is .otf, so let’s declare that
   Extension=.otf,
   % We want, in general, for LaTeX to rely more on methods other than changing
-  % the word space for justification, so we set it to ±10% globally.
-  WordSpace={1,1.1,0.9}
+  % the word space for justification, so we let it stretch and shrink less than
+  % is allowed by default.
+  WordSpace={1,1.08,0.9}
 }
 
 % Scala Sans from Adobe Fonts
