@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 
-cd $HOME/.polytextum
+cd "$HOME/.polytextum"
 
-# Create necessary dir(s)
-mkdir -pv $(kpsewhich -var-value=TEXMFHOME)/tex/latex/polytextum
+texmfhome=$(kpsewhich -var-value=TEXMFHOME)
 
-# Link prose class
-for file in latex/prose/*; do
-  ln -s $PWD/$file $(kpsewhich -var-value=TEXMFHOME)/tex/latex/polytextum/$(basename $file)
-done
+if [ -e "$texmfhome/tex/latex/polytextum" ]; then
+  rm -r "$texmfhome/tex/latex/polytextum"
+fi
+mkdir -pv "$texmfhome/tex/latex/polytextum"
 
-# Link pres class
-for file in latex/pres/*; do
-  ln -s $PWD/$file $(kpsewhich -var-value=TEXMFHOME)/tex/latex/polytextum/$(basename $file)
+for file in latex/*; do
+  ln -s "$PWD/$file" "$texmfhome/tex/latex/polytextum/"$(basename $file)
 done

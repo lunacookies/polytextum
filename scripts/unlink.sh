@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-rm -rf $(kpsewhich -var-value=TEXMFHOME)/tex/latex/polytextum
+texmfhome=$(kpsewhich -var-value=TEXMFHOME)
+
+if [ -e "$texmfhome/tex/latex/polytextum" ]; then
+  rm -r "$texmfhome/tex/latex/polytextum"
+fi
