@@ -1,5 +1,5 @@
 % vim: ft=tex nomodeline:
-\ProvidesClass{polytextumprose}
+\ProvidesClass{polytextum}
 \NeedsTeXFormat{LaTeX2e}
 
 \input{moreoptions}
