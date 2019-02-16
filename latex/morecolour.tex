@@ -8,19 +8,10 @@
 % Define some colours
 \definecolor{red}{HTML}{b2220c}
 \definecolor{darkred}{HTML}{991600}
-\definecolor{blue}{HTML}{1a138c}
-\definecolor{darkblue}{HTML}{3f3c70}
 \definecolor{darkgrey}{gray}{0.6}
 
-% Map various 'colour variables' to the colours defined above depending on
-% whether the user requests a blue colour scheme or a red one
-\ifthenelse{\boolean{@argon@colour}}{%
-  \colorlet{bigtitle}{blue}
-  \colorlet{tocnum}{darkblue}
-  \colorlet{url}{darkblue}
-}{
-  \colorlet{bigtitle}{red}
-  \colorlet{tocnum}{darkred}
-  \colorlet{url}{darkred}
-}
+% Map these colours to various page elements
+\colorlet{bigtitle}{red}
+\colorlet{tocnum}{darkred}
+\colorlet{url}{darkred}
 \colorlet{smalltocnum}{darkgrey}

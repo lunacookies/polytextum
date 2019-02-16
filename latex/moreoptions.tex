@@ -15,10 +15,5 @@
 \DeclareOptionX[argon]<common>{twoside}{\setboolean{@argon@twoside}{true}}
 \DeclareOptionX[argon]<common>{oneside}{\setboolean{@argon@twoside}{false}}
 
-% Colour option (false is red; true is blue)
-\newboolean{@argon@colour}\setboolean{@argon@colour}{false}
-\DeclareOptionX[argon]<common>{red}{\setboolean{@argon@colour}{false}}
-\DeclareOptionX[argon]<common>{blue}{\setboolean{@argon@colour}{true}}
-
 % Process all the options
 \ProcessOptionsX*[argon]<common>\relax
