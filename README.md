@@ -9,9 +9,9 @@ must sync the required fonts from [Adobe Fonts](https://fonts.adobe.com).
 
 Make sure you have successfully synced all styles of these fonts:
 
-- [Arno](https://fonts.adobe.com/fonts/arno)
-- [Scala Sans](https://fonts.adobe.com/fonts/ff-scala-sans)
-- [Nexus Typewriter](https://fonts.adobe.com/fonts/ff-nexus-typewriter)
+- [Minion 3](https://minion.typekit.com) ([Regular](https://fonts.adobe.com/fonts/minion-3),
+  [Display](https://fonts.adobe.com/fonts/minion-3-display), [Caption](https://fonts.adobe.com/fonts/minion-3-caption), and [Subhead](https://fonts.adobe.com/fonts/minion-3-subhead))
+- [Fira Mono](https://fonts.adobe.com/fonts/fira-mono)
 
 ## Quick start
 
