@@ -5,10 +5,15 @@
 % Avoid widows, orphans, and lines sticking into the margin
 \clubpenalty=500
 \widowpenalty=1000
-\tolerance=300
+\pretolerance=90
+\tolerance=250
+
+% Discourage hyphenating across pages
+\brokenpenalty=500
 
 % Let LaTeX hyphenate as much as it needs to (for better justification)
 \hyphenpenalty=0
+\doublehyphendemerits=0
 
 % Set a base point size of 12 on a leading of 15pt
 \renewcommand\Large{\@setfontsize\Large{16bp}{20bp}}
