@@ -66,7 +66,8 @@
 
 % Settings that apply to all fonts
 \defaultfontfeatures{
-  SmallCapsFeatures={ % Letterspace small caps
+  % Letterspace small caps
+  SmallCapsFeatures={ %
     LetterSpace=5.0
   },
   % Path to where installfonts.sh copies fonts from Adobe Fonts
@@ -74,78 +75,74 @@
   % All of Adobe Fonts is .otf, so let’s declare that
   Extension=.otf,
   % We want, in general, for LaTeX to rely more on methods other than changing
-  % the word space for justification, so we let it stretch and shrink less than
-  % is allowed by default.
-  WordSpace={1,1.08,0.9}
+  % the word space for justification, so we let it stretch and shrink ±10%,
+  % which is less than is allowed by default. In additition, the normal size of
+  % the word space is reduced by 5%.
+  WordSpace={0.95,1.045,0.855}
 }
 
-% Scala Sans from Adobe Fonts
-% We set scale to one here because Arno is pretty small in its font file
-% Proportional text figures are default here
-\setsansfont[
-  ItalicFont=*-Ita,
-  BoldFont=*-Bold,
-  BoldItalicFont=*-BoldIta,
-  Scale=1
-]{ScalaSansPro}
-
-% Arno Pro from Adobe Fonts
-\setromanfont[
+% Minion 3 from Adobe Fonts
+\setmainfont[
   % Regular settings
+  Scale=1,                          % Base the size of other fonts on Minion
   Numbers={OldStyle, Proportional}, % Use proportional text figures
-  Scale=MatchLowercase,             % Match x-height to Scala Sans
   % Optical sizes
-  UprightFont=*-Regular,
+  UprightFont=Minion3-Regular,
   UprightFeatures={
     SizeFeatures={
-      {Size={-8.4},     Font=*-Caption},
-      {Size={8.5-10.9}, Font=*-SmText},
+      {Size={-8.9},     Font=Minion3Caption-Regular},
+      {Size={10-10.9},  Font=Minion3-Medium},
       {Size={11-13.9}},
-      {Size={14-21.4},  Font=*-Subhead},
-      {Size={21.5-},    Font=*-Display}
+      {Size={14-23.9},  Font=Minion3Subhead-Regular},
+      {Size={24-},      Font=Minion3Display-Regular}
     },
   },
-  ItalicFont=*-Italic,
+  ItalicFont=Minion3-Italic,
   ItalicFeatures={
     SizeFeatures={
-      {Size={-8.4},     Font=*-ItalicCaption},
-      {Size={8.5-10.9}, Font=*-ItalicSmText},
+      {Size={-8.9},     Font=Minion3Caption-Italic},
+      {Size={10-10.9},  Font=Minion3-MediumItalic},
       {Size={11-13.9}},
-      {Size={14-21.4},  Font=*-ItalicSubhead},
-      {Size={21.5-},    Font=*-ItalicDisplay}
+      {Size={14-23.9},  Font=Minion3Subhead-Italic},
+      {Size={24-},      Font=Minion3Display-Italic}
     },
   },
-  BoldFont=*-Smbd,
+  BoldFont=Minion3-Semibold,
   BoldFeatures={
     SizeFeatures={
-      {Size={-8.4},     Font=*-SmbdCaption},
-      {Size={8.5-10.9}, Font=*-SmbdSmText},
-      {Size={11-13.9}},
-      {Size={14-21.4},  Font=*-SmbdSubhead},
-      {Size={21.5-},    Font=*-SmbdDisplay}
+      {Size={-8.9},    Font=Minion3Caption-Semibold},
+      {Size={9-13.9}},
+      {Size={14-23.9}, Font=Minion3Subhead-Semibold},
+      {Size={24-},     Font=Minion3Display-Semibold}
     },
   },
-  BoldItalicFont=*-SmbdItalic,
+  BoldItalicFont=Minion3-SemiboldItalic,
   BoldItalicFeatures={
     SizeFeatures={
-      {Size={-8.4},     Font=*-SmbdItalicCaption},
-      {Size={8.5-10.9}, Font=*-SmbdItalicSmText},
-      {Size={11-13.9}},
-      {Size={14-21.4},  Font=*-SmbdItalicSubhead},
-      {Size={21.5-},    Font=*-SmbdItalicDisplay}
+      {Size={-8.9},    Font=Minion3Caption-SemiboldItalic},
+      {Size={9-13.9}},
+      {Size={14-23.9}, Font=Minion3Subhead-SemiboldItalic},
+      {Size={24-},     Font=Minion3Display-SemiboldItalic}
     },
-  },
-]{ArnoPro}
+  }
+]{Minion3}
 
-% Nexus Typewriter Pro, from (you guessed it!) Adobe Fonts
+% Seravek, comes built in on macOS
+\setsansfont[
+  Scale=MatchLowercase,             % Match size to Minion
+  Numbers={OldStyle, Proportional}, % Use proportional text figures
+  Path={/Library/Fonts/},
+  Extension=.ttc
+]{Seravek}
+
+% Fira Mono from Adobe Fonts
 % Monospaced text figures are default here
 \setmonofont[
+  Scale=MatchLowercase,  % Match size to Minion
+  Numbers={OldStyle},    % Use text figures
   UprightFont=*,
-  ItalicFont=*-Italic,
-  BoldFont=*-Bold,
-  BoldItalicFont=*-BoldItalic,
-  Scale=MatchLowercase  % Match size to Scala Sans
-]{NexusTypewriterPro}
+  BoldFont=*-Bold
+]{FiraMonoOT}
 
 % Set up swash italics
 \DeclareTextFontCommand{\textsw}{
