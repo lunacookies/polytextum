@@ -38,21 +38,13 @@
 }
 
 % (Sub)section styles
-\setsecheadstyle{
-  \raggedright     % Don't center
-  \normalfont      % Same size as body text
-  \scshape         % Inherit small caps settings (e.g. letterspacing)
-  \addfontfeature{ % Make uppercase letters look like small caps
-    Letters=UppercaseSmallCaps
-  }
-  \needspace{1em}  % Keep with next paragraph
-}
-\setbeforesecskip{-\baselineskip}
-\setaftersecskip{\baselineskip}
+\setsecheadstyle{\raggedright\normalfont\bfseries\needspace{1em}}
+\setbeforesecskip{-20bp}
+\setaftersecskip{10bp}
 
 \setsubsecheadstyle{\raggedright\normalfont\itshape\needspace{1em}}
-\setbeforesubsecskip{-\baselineskip}
-\setaftersubsecskip{\baselineskip}
+\setbeforesubsecskip{-10bp}
+\setaftersubsecskip{5bp}
 
 % Allows customisation of lists
 \RequirePackage{enumitem}
