@@ -50,12 +50,7 @@
 
 % Commands for letterspaced capitals
 \newcommand{\lowercaps}[1]{\textsc{\addfontfeature{Letters={UppercaseSmallCaps}}#1}}
-\newcommand{\uppercaps}[1]{
-  \addfontfeature{
-    Letters={Uppercase},
-    LetterSpace=15
-  }{\MakeTextUppercase{#1}}
-}
+\newcommand{\uppercaps}[1]{{\caps\MakeTextUppercase{#1}}}
 
 % Command for abbreviations and acronyms
 \newcommand{\abbr}[1]{\lowercaps{#1}}
@@ -145,6 +140,55 @@
   UprightFont=*,
   BoldFont=*-Bold
 ]{FiraMonoOT}
+
+% Special caps font family
+\newfontfamily\caps[
+  % Regular settings
+  Scale=MatchLowercase,           % Base the size of other fonts on Minion
+  Numbers={Lining, Proportional}, % Use proportional lining figures
+  Letters={Uppercase},            % A few small adjustments for all-caps text
+  LetterSpace=15,                 % Lots of letterspacing
+  WordSpace={2,2.1,1.9},          % A far wider word space
+  % Optical sizes
+  UprightFont=Minion3-Regular,
+  UprightFeatures={
+    SizeFeatures={
+      {Size={-8.9},     Font=Minion3Caption-Regular},
+      {Size={10-10.9},  Font=Minion3-Medium},
+      {Size={11-13.9}},
+      {Size={14-23.9},  Font=Minion3Subhead-Regular},
+      {Size={24-},      Font=Minion3Display-Regular}
+    },
+  },
+  ItalicFont=Minion3-Italic,
+  ItalicFeatures={
+    SizeFeatures={
+      {Size={-8.9},     Font=Minion3Caption-Italic},
+      {Size={10-10.9},  Font=Minion3-MediumItalic},
+      {Size={11-13.9}},
+      {Size={14-23.9},  Font=Minion3Subhead-Italic},
+      {Size={24-},      Font=Minion3Display-Italic}
+    },
+  },
+  BoldFont=Minion3-Semibold,
+  BoldFeatures={
+    SizeFeatures={
+      {Size={-8.9},    Font=Minion3Caption-Semibold},
+      {Size={9-13.9}},
+      {Size={14-23.9}, Font=Minion3Subhead-Semibold},
+      {Size={24-},     Font=Minion3Display-Semibold}
+    },
+  },
+  BoldItalicFont=Minion3-SemiboldItalic,
+  BoldItalicFeatures={
+    SizeFeatures={
+      {Size={-8.9},    Font=Minion3Caption-SemiboldItalic},
+      {Size={9-13.9}},
+      {Size={14-23.9}, Font=Minion3Subhead-SemiboldItalic},
+      {Size={24-},     Font=Minion3Display-SemiboldItalic}
+    },
+  }
+]{Minion3}
 
 % Set up swash italics
 \DeclareTextFontCommand{\textsw}{
