@@ -2,19 +2,19 @@
 % moremargins.sty -- Margin-related settings
 %
 
-% Set width of typeblock in accordance with copyfitting table from The Elements
-% of Typographic Style. Set the typeblock height to be equal to 42 lines.
-\settypeblocksize{42\baselineskip}{27pc}{*}
-
 % Traditional vertical margin ratio
 \setulmargins{*}{*}{2}
 
 % If sidenotes are enabled ...
 \ifthenelse{\boolean{@argon@sidenotes}}{%
-  % Use a more extreme horizontal margin ratio ...
+  % Set width of typeblock for a line length of ~66 characters, and set the
+  % typeblock height to be equal to 42 lines.
+  \settypeblocksize{42\baselineskip}{27pc}{*}
+
+  % Use a more extreme horizontal margin ratio
   \setlrmargins{*}{*}{5}
 
-  % Set up the space the sidenotes will occupy ...
+  % Set up the space the sidenotes will occupy
   \setmarginnotes{2pc}{12pc}{\baselineskip}
 
   % And set all the sidenotes settings
@@ -23,14 +23,16 @@
   % If not using sidenotes ...
 }{
 
-  % If using a twoside layout ...
-  \ifthenelse{\boolean{@argon@twoside}}{%
-    % Use asymmetrical margins
-    \setlrmargins{*}{*}{2}
+  % Set width of typeblock for a line length of ~75 characters, and set the
+  % typeblock height to be equal to 42 lines. Although 27pc and 66 cpm would be
+  % ideal, having such wide margins looks a little odd.
+  \settypeblocksize{42\baselineskip}{30pc}{*}
 
-    % If not using twoside layout ...
+  % Use asymmetrical margins if using a two-sided layout. Otherwise set the left
+  % and right margins to be equal
+  \ifthenelse{\boolean{@argon@twoside}}{%
+    \setlrmargins{*}{*}{2}
   }{
-    % Use symmetrical margins
     \setlrmargins{*}{*}{1}
   }
 
