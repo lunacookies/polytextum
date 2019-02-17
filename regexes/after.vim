@@ -14,3 +14,6 @@ silent! g/\\tightlist/d
 " Unicode character to make sure the amount of spacing between the three
 " ellipses is consistent with what the typeface's designer(s) intended
 silent! %s/\\ldots{}/…/
+
+" Converts markdown citations into BibLaTeX's format
+silent! %s/\v\{\[\}\@(.+)\{\]\}/\\autocite{\1}/

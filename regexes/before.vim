@@ -19,8 +19,3 @@ silent! %s/\v-([A-Z][A-Z]+)/-\\abbr{\1}/
 
 " Matches abbreviation after parentheses
 silent! %s/\v\(([A-Z][A-Z]+)/\(\\abbr{\1}/
-
-" Misc
-
-" Converts markdown citations into BibLaTeX's format
-silent! %s/\v\[\@(.+)\]/\\autocite{\1}/
