@@ -23,9 +23,30 @@
 \newcommand\smidgesmaller{\@setfontsize\normalsize{11.5bp}{16bp}}
 \renewcommand\small{\@setfontsize\small{10bp}{14bp}}
 
-% Create \newthought and \longnewthought commands for starting a new section
-% without a section heading. It adds a little vertical space and sets three or
-% four words in all small caps.
+% Remove all indications of a new paragraph
+\newcommand{\stoppar}{\noindent\ignorespaces}
+
+% A command for starting a new section without a section heading. This is done
+% by adding an asterisk centered both vertically and horizontally over two
+% lines.
+\newcommand{\sbcorrection}{0.5em}
+\newcommand{\sectionbreak}{
+  \vspace{\baselineskip}
+  \vspace{-\sbcorrection}
+  {\centering *\\}
+  \vspace{\sbcorrection}
+  \par\stoppar
+}
+
+% Use \bigpar to create a new paragraph with an empty line in between instead of
+% an indent. This is useful when you feel that one paragraph isn't enough
+% separation, and \sectionbreak is too much.
+\newcommand{\bigpar}{\vskipnextgrid\stoppar}
+
+% Create \newthought and \longnewthought commands for a rather dramatic and
+% unusual way to start a new section without a section heading. It is probably
+% too regal for most uses, but I'll keep it because it may come in handy. It
+% adds a little vertical space and sets three or four words in all small caps.
 \def\newthought #1 #2 #3 {\vspace{1\baselineskip plus 5bp minus 2bp}\noindent {\lowercaps{#1 #2 #3}} }
 \def\longnewthought #1 #2 #3 #4 {\vspace{1\baselineskip plus 5bp minus 2bp}\noindent {\lowercaps{#1 #2 #3 #4}} }
 
@@ -71,7 +92,7 @@
 \defaultfontfeatures{
   % Letterspace small caps
   SmallCapsFeatures={ %
-    LetterSpace=5.0
+    LetterSpace=3.0
   },
   % Path to where installfonts.sh copies fonts from Adobe Fonts
   Path={/Users/aramis/.local/share/polytextum/fonts/},
