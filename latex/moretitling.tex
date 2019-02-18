@@ -2,39 +2,39 @@
 % moretitling.sty -- Titles and titlepages
 %
 
-% Typeset an inline title with \maketitle
-\renewcommand{\maketitle}{%
-  \begin{flushleft}
-    {\uppercaps{\thetitle}\par}%
-    {\vspace{\baselineskip} \hrule\vspace{\baselineskip}}
-    {\small{\itshape\theauthor}\par}%
-    {\small{\itshape\thedate}}%
-  \end{flushleft}
+% Typeset an ordinary title with \maketitle
+\renewcommand{\maketitle}{
+  \normalfont
 
-  % Add enough space to get back into phase
-  \vskipnextgrid
+  % Title in small caps
+  {\stoppar\scshape{\caps\thetitle}\par}
+  % Author name and date in italics, dark grey to deemphasize
+  {\stoppar\color{subtitle}\itshape\theauthor\\\thedate\par}
 
-  % This removes the indent afterwards
-  \makeatletter
+  % One empty line
+  \vspace{\baselineskip}
+
+  % This removes the indent that may be present after the \maketitle
   \@afterindentfalse
   \@afterheading
-  \makeatother
+
+  \normalfont
 }
 
 % Typeset a titlepage with \maketitlepage
-\newcommand{\maketitlepage}[2]{%
+\newcommand{\maketitlepage}[2]{
   \begin{titlingpage}
     \null\vspace{8pc}
 
-    {\large\theauthor\par}%
+    {\large\theauthor\par}
     \vspace{3pc}
 
-    {\Large\color{bigtitle}\uppercaps{#1}\par}%
+    {\Large\color{bigtitle}\uppercaps{#1}\par}
     \vspace{0.5em}
-    {\Large\color{bigtitle}\uppercaps{#2}\par}%
+    {\Large\color{bigtitle}\uppercaps{#2}\par}
     \vspace{3pc}
 
     \vfill
-    {\large \thedate\par}%
+    {\large \thedate\par}
   \end{titlingpage}
 }
