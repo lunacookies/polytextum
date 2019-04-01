@@ -3,18 +3,18 @@
 # Function for running a file of ex commands on a file, and then saving the
 # result of these modifications to another file.
 #
-# $1: Path to file of ex commands
+# $1: File of ex commands
 # $2: Input file
 # $3: Output file
-vimregexrunner() {
-  vim -Nu NONE +"so $1 | w! $3 | q!" $2
+vimregex() {
+  vim -Nu NONE +"so $HOME/.polytextum/regexes/$1 | w! $3 | q!" $2
 }
 
 #
 # Modify before convert
 #
 
-vimregexrunner "~/.polytextum/regexes/before.vim" "$2" "$2.before"
+vimregex "before.vim" "$2" "$2.before"
 
 #
 # Convert
@@ -37,7 +37,7 @@ fi
 # Modify after convert
 #
 
-vimregexrunner "~/.polytextum/regexes/after.vim" "$2.after" "$2.tex"
+vimregex "after.vim" "$2.after" "$2.tex"
 
 #
 # Clean up
