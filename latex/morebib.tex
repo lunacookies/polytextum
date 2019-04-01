@@ -8,10 +8,50 @@
 % Bibliography management
 \RequirePackage[
   backend=biber,        % Use biber as backend
-  style=numeric-comp,   % Sort inline citations
-  autocite=superscript, % Show citation number as a superscript
-  backref=true          % Show where something was cited
+  sorting=nyt,          % Sort author, year, title
+  giveninits=true,      % Use initals for given name of author(s)
+  dateabbrev=false,     % Don't abbreviate dates
+  urldate=long,         % Show access date in regular format
+  backref=true,         % Show where something was cited
+  citestyle=authoryear, % Use authoryear for citations but the default style for
+  bibstyle=numeric      % the bibliography itself
 ]{biblatex}
+
+% Define custom cite command for author-year citations in parentheses with a
+% comma before the year.
+\DeclareCiteCommand{\mycite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\def\nameyeardelim{\addcomma\addspace}%
+   \usebibmacro{citeindex}%
+   \usebibmacro{cite}%
+   \def\nameyeardelim{\addspace}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+% This does several things:
+% - removes the numbering from items in the bibliography since we're using an
+%   author-year style for citations
+% - adds a hanging indent of 1em
+\defbibenvironment{bibliography}
+  {\list
+    {}
+    {\setlength{\leftmargin}{1em}%
+     \setlength{\itemindent}{-\leftmargin}%
+     \setlength{\itemsep}{0.5em}%
+     \setlength{\parsep}{0bp}}
+  }
+  {\endlist}
+  {\item \addspace}
+
+% Use Australian date format
+\DeclareFieldFormat{date}{%
+  \thefield{day}\addspace%
+  \mkbibmonth{\thefield{month}}\addspace%
+  \thefield{year}}
+\DeclareFieldFormat{urldate}{%
+  (accessed \thefield{urlday}\addspace%
+  \mkbibmonth{\thefield{urlmonth}}\addspace%
+  \thefield{urlyear})}
 
 % Set bibliography source file
 \addbibresource{refs.bib}
