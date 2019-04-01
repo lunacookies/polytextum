@@ -22,19 +22,19 @@
 }
 
 % Typeset a titlepage with \maketitlepage
-\newcommand{\maketitlepage}[2]{
+\newcommand{\maketitlepage}[4]{
   \begin{titlingpage}
     \null\vspace{8pc}
 
-    {\large\theauthor\par}
+    {\stoppar\large#1\par}
+    {\stoppar\large#2\par}
     \vspace{3pc}
 
-    {\Large\color{bigtitle}\uppercaps{#1}\par}
-    \vspace{0.5em}
-    {\Large\color{bigtitle}\uppercaps{#2}\par}
+    {\stoppar\Large\color{bigtitle}\uppercaps{#3}\par}
+    {\stoppar\Large\color{bigtitle}\uppercaps{#4}\par}
     \vspace{3pc}
 
     \vfill
-    {\large \thedate\par}
+    {\stoppar\large \thedate\par}
   \end{titlingpage}
 }
