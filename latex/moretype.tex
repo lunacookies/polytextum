@@ -52,18 +52,18 @@
 
 % Create a command for finishing off a long document
 \newcommand{\finalfleuron}{
-  \vspace{\baselineskip}
-  \centering
-  \addfontfeature{Ornament=6}
-  \large\textbullet\normalsize\normalfont\
+  \begin{center}
+    \addfontfeature{Ornament=12}\large\textbullet\par
+  \end{center}
+  \normalsize\normalfont
 }
 
 % Add an alternate one
 \newcommand{\altfinalfleuron}{
-  \vspace{\baselineskip}
-  \centering
-  \addfontfeature{Ornament=12}
-  \large\textbullet\normalsize\normalfont\
+  \begin{center}
+    \addfontfeature{Ornament=9}\large\textbullet\par
+  \end{center}
+  \normalsize\normalfont
 }
 
 % Command for inserting word count
