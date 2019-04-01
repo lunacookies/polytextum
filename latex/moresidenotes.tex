@@ -11,6 +11,7 @@
 % Command for deciding justification for content in the margin
 \newcommand{\argonflush}{
   \ifthenelse{\boolean{@argon@twoside}}{%
+    \strictpagechecktrue
     \checkoddpage
     \ifoddpage%
       \RaggedRight
