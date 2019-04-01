@@ -22,13 +22,15 @@ vimregex "before.vim" "$2" "$2.before"
 
 template=$HOME/.polytextum/templates
 
+# We disable smart because the editor automatically uses smart quotes, and
+# LaTeX handles the rest of the substitutions.
+flags="--from markdown-smart --to latex-smart $2.before --output $2.after"
+
 # Convert the various document types into temporary tex files
 if [ $1 = "report" ]; then
-  pandoc -f markdown -t latex $2.before -o $2.after \
-    --template=$template/report.tex --top-level-division=chapter
+  pandoc $flags --template=$template/report.tex --top-level-division=chapter
 elif [ $1 = "article" ]; then
-  pandoc -f markdown -t latex $2.before -o $2.after \
-    --template=$template/article.tex  --top-level-division=section
+  pandoc $flags --template=$template/article.tex  --top-level-division=section
 else
   echo "Specified document type not valid. Try using report or article."
 fi
