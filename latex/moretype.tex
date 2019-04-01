@@ -38,10 +38,10 @@
   \par\stoppar
 }
 
-% Use \bigpar to create a new paragraph with an empty line in between instead of
-% an indent. This is useful when you feel that one paragraph isn't enough
-% separation, and \sectionbreak is too much.
-\newcommand{\bigpar}{\vskipnextgrid\stoppar}
+% Use \smallsectionbreak to create a new paragraph with an empty line in between
+% instead of an indent. This is useful when you feel that one paragraph isn't
+% enough separation, and \sectionbreak is too much.
+\newcommand{\smallsectionbreak}{\vspace{\baselineskip}\stoppar}
 
 % Create \newthought and \longnewthought commands for a rather dramatic and
 % unusual way to start a new section without a section heading. It is probably
