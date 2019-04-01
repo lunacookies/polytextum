@@ -66,6 +66,23 @@
   \large\textbullet\normalsize\normalfont\
 }
 
+% Command for inserting word count
+\newcommand{\wordcount}[1]{
+  \newcommand{\insertwordcount}[1]{
+    {\color{wordcount}\stoppar #1 words}
+  }
+  \makepagestyle{wordcount}
+  \makeevenfoot{wordcount}
+    {\normalfont\thepage}
+    {}
+    {\insertwordcount{#1}}
+  \makeoddfoot{wordcount}
+    {\insertwordcount{#1}}
+    {}
+    {\normalfont\thepage}
+  \thispagestyle{wordcount}
+}
+
 % Microtypographic awesomeness!
 \RequirePackage[
   final,      % Activate even with draft class option
