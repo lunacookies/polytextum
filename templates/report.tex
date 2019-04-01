@@ -37,12 +37,18 @@ $endif$
 \begin{document}
 
 \pagenumbering{roman}
-$if(title1)$
-\maketitlepage{$title1$}{$title2$}
-$else$
-\maketitlepage{$title$}{}
-$endif$
-\tableofcontents*
+\maketitlepage
+  $if(author1)$
+    {$author1$}{$author2$}
+  $else$
+    {$if(author)$$author$$else$Aramis Razzaghipour$endif$}{}
+  $endif$
+  $if(title1)$
+    {$title1$}{$title2$}
+  $else$
+    {$title$}{}
+  $endif$
+
 \cleardoublepage
 
 \pagenumbering{arabic}
