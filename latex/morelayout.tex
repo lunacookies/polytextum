@@ -26,15 +26,13 @@
 
 % Chapter style
 \makechapterstyle{polytextum}{%
-  \renewcommand{\chapterheadstart}{}
   \renewcommand{\printchaptername}{}
   \renewcommand{\chapternamenum}{}
   \renewcommand{\printchapternum}{}
   \renewcommand{\afterchapternum}{}
   \renewcommand{\printchaptertitle}[1]{%
-    \raggedright\uppercaps{##1}}
-  \renewcommand{\afterchaptertitle}{%
-    \vspace{\baselineskip}\vskipnextgrid\rule{\textwidth}{0.4bp}\vspace{\baselineskip}\vskipnextgrid}
+    \raggedright\Large\uppercaps{##1}
+  }%
 }
 
 % (Sub)section styles
