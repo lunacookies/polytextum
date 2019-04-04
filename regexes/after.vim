@@ -15,3 +15,8 @@ silent! g/\\tightlist/d
 " Unicode character to make sure the amount of spacing between the three
 " ellipses is consistent with what the typeface's designer(s) intended
 silent! %s/\\ldots{}/…/
+
+" Reapply unicode dashes that are disabled due to the deactivation of the
+" 'smart' typography extension. (It had to be disabled to preserve the unicode
+" quotes added by markdown editors.)
+silent! %s/-\\\/-/–/
