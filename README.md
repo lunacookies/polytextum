@@ -15,13 +15,13 @@ Make sure you have successfully synced all styles of these fonts:
 
 ## Quick start
 
-1. Clone this repository to `~/.polytextum`:
+1. Clone this repository to `XDG_DATA_HOME` (defaults to `$HOME/.local/share`):
 
-       git clone https://github.com/arzg/polytextum.git ~/.polytextum
+       git clone https://github.com/arzg/polytextum.git ${XDG_DATA_HOME:-$HOME/.local/share}/polytextum
 
 1. Place the `polytextum` executable somewhere in your path.
-1. Run `bash ~/.polytextum/link.sh` to link all the necessary files into place
-1. Run `bash ~/.polytextum/installfonts.sh` to copy all of Adobe Fonts’ files
+1. Run `bash ${XDG_DATA_HOME:-$HOME/.local/share}/polytextum/scripts/link.sh` to link all the necessary files into place
+1. Run `bash ${XDG_DATA_HOME:-$HOME/.local/share}/polytextum/scripts/installfonts.sh` to copy all of Adobe Fonts’ files
    into a cache
 1. Start using Polytextum!
 
@@ -29,11 +29,11 @@ Make sure you have successfully synced all styles of these fonts:
 
 To run Polytextum on a given markdown file run
 
-    polytextum article yourfile.md
+    pt article yourfile.md
 
 for an article, and this
 
-    polytextum report yourfile.md
+    pt report yourfile.md
 
 for a report.
 
