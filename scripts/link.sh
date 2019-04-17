@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$HOME/.polytextum"
+cd "${XDG_DATA_HOME:-$HOME/.local/share}/polytextum"
 
 texmfhome=$(kpsewhich -var-value=TEXMFHOME)
 

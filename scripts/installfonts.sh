@@ -3,7 +3,7 @@
 tkfontdir="$HOME/Library/Application Support/Adobe/CoreSync/plugins/livetype/.r"
 cd "$tkfontdir"
 
-targetdir="$HOME/.local/share/polytextum/fonts"
+targetdir="${XDG_DATA_HOME:-$HOME/.local/share}/polytextum/fonts"
 
 if [ -e $targetdir ]; then
   rm -r $targetdir

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+ptroot=${XDG_DATA_HOME:-$HOME/.local/share}/polytextum
+
 # Function for running a file of ex commands on a file, and then saving the
 # result of these modifications to another file.
 #
@@ -7,7 +9,7 @@
 # $2: Input file
 # $3: Output file
 vimregex() {
-  vim -Nu NONE +"so $HOME/.polytextum/regexes/$1 | w! $3 | q!" $2
+  vim -Nu NONE +"so $ptroot/regexes/$1 | w! $3 | q!" $2
 }
 
 #
@@ -20,7 +22,7 @@ vimregex "before.vim" "$2" "$2.before"
 # Convert
 #
 
-template=$HOME/.polytextum/templates
+template=$ptroot/templates
 
 # We disable smart because the editor automatically uses smart quotes, and
 # LaTeX handles the rest of the substitutions.
